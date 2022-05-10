@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "100929782179",
+    "project_id": "haejo-e3609",
+    "storage_bucket": "haejo-e3609.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:100929782179:android:24788f0e8441611a659a16",
+        "android_client_info": {
+          "package_name": "com.itstime.haejo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "100929782179-2fnrr64o4sabkipks7t4im9mbvvqn6f6.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.itstime.haejo",
+            "certificate_hash": "f2d559fb6929f80a6e922d81684e7649f1bd3774"
+          }
+        },
+        {
+          "client_id": "100929782179-jlf51ivuju3ie3uvl42nkgr8lq9ofgid.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCr2w3oDGCvQfONcQB2EDDAvDfI62v6fCE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "100929782179-jlf51ivuju3ie3uvl42nkgr8lq9ofgid.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
