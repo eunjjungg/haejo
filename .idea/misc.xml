@@ -4,11 +4,18 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/ej/haejo/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1585" />
+        <entry key="..\:/Users/ej/haejo/app/src/main/res/drawable/ic_application.xml" value="0.175" />
+        <entry key="..\:/Users/ej/haejo/app/src/main/res/drawable/ic_application_selected.xml" value="0.175" />
+        <entry key="..\:/Users/ej/haejo/app/src/main/res/drawable/ic_chat.xml" value="0.175" />
+        <entry key="..\:/Users/ej/haejo/app/src/main/res/drawable/ic_chat_selected.xml" value="0.247" />
+        <entry key="..\:/Users/ej/haejo/app/src/main/res/drawable/ic_home_selected.xml" value="0.247" />
+        <entry key="..\:/Users/ej/haejo/app/src/main/res/drawable/ic_mypage_selected.xml" value="0.247" />
+        <entry key="..\:/Users/ej/haejo/app/src/main/res/drawable/ic_notification.xml" value="0.244" />
         <entry key="..\:/Users/ej/haejo/app/src/main/res/layout/activity_begin.xml" value="0.264" />
         <entry key="..\:/Users/ej/haejo/app/src/main/res/layout/activity_main.xml" value="0.22916666666666666" />
         <entry key="..\:/Users/ej/haejo/app/src/main/res/layout/fragment_main_application.xml" value="0.190625" />
         <entry key="..\:/Users/ej/haejo/app/src/main/res/layout/fragment_main_chat.xml" value="0.190625" />
-        <entry key="..\:/Users/ej/haejo/app/src/main/res/layout/fragment_main_home.xml" value="0.190625" />
+        <entry key="..\:/Users/ej/haejo/app/src/main/res/layout/fragment_main_home.xml" value="0.24742269014270782" />
         <entry key="..\:/Users/ej/haejo/app/src/main/res/layout/fragment_main_mypage.xml" value="0.17708333333333334" />
       </map>
     </option>

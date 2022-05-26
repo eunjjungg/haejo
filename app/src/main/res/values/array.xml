@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="region">
+        <item>지역</item>
+        <item>서울</item>
+        <item>경기</item>
+        <item>부산</item>
+        <item>광주</item>
+        <item>구현예정</item>
+    </string-array>
+
+    <string-array name="week">
+        <item>요일</item>
+        <item>월</item>
+        <item>화</item>
+        <item>수</item>
+        <item>목</item>
+        <item>금</item>
+        <item>토</item>
+        <item>일</item>
+    </string-array>
+
+</resources>

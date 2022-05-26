@@ -1,4 +1,4 @@
-package com.itstime.haejo.fragment
+package com.itstime.haejo.main
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
