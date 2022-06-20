@@ -1,14 +1,18 @@
 package com.itstime.haejo
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
-import android.widget.ImageButton
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import com.google.firebase.auth.FirebaseAuth
 import com.itstime.haejo.databinding.ActivityMainBinding
 import com.itstime.haejo.main.MainApplicationFragment
 import com.itstime.haejo.main.MainChatFragment
 import com.itstime.haejo.main.MainHomeFragment
 import com.itstime.haejo.main.MainMypageFragment
+import com.itstime.haejo.util.AppSetting
+
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
 
@@ -16,15 +20,16 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        //fragment setting
+        //fragment 초기 화면 setting: 디폴트는 홈화면으로 
         val transaction = supportFragmentManager.beginTransaction()
         transaction.add(binding.fragmentView.id, MainHomeFragment())
         transaction.commit()
+        setThisViewIcUnselected()
+        binding.btnHome.setImageResource(R.drawable.ic_home_selected)
     }
 
 
@@ -34,6 +39,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
         when(p0?.id) {
             binding.btnHome.id -> {
+                Toast.makeText(this, AppSetting.prefs.getEmail(), Toast.LENGTH_SHORT).show()
                 transaction.replace(binding.fragmentView.id, MainHomeFragment())
                 transaction.commit()
                 setThisViewIcUnselected()
