@@ -22,6 +22,7 @@
     <!--custom color2-->
     <color name="customBlack">#020202</color>
     <color name="customPurple">#95A1F1</color>
-    <color name="customxxx">#95A1F1</color>
+    <color name="customPurpleLight">#ADB6EF</color>
+    <color name="customPurpleDark">#7E8DF1</color>
 
 </resources>

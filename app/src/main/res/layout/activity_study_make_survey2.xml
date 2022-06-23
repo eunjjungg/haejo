@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".study.StudyMakeActivity">
+    tools:context=".study.StudyMakeSurvey2Activity">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -54,108 +53,12 @@
                 android:layout_marginStart="4dp"
                 android:autoSizeTextType="uniform"
                 android:fontFamily="@font/nanum_square_round_r"
-                android:text="원하는 스터디를 직접 만들어보세요!"
+                android:text="스터디 지원자들에게 궁금한 점을 물어보세요!\n질문에 대한 답변은 60자 제한입니다."
                 android:textSize="16sp"
                 app:layout_constraintStart_toStartOf="@+id/tvTitle"
                 app:layout_constraintTop_toBottomOf="@+id/tvTitle" />
 
-            <!--상단 스피너-->
-            <LinearLayout
-                android:id="@+id/linearSpinner1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="32dp"
-                android:layout_marginEnd="20dp"
-                android:weightSum="3"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="@+id/tvTitle"
-                app:layout_constraintTop_toBottomOf="@+id/tvDetail">
-
-                <Spinner
-                    android:id="@+id/spinnerRegion"
-                    android:layout_width="0dp"
-                    android:layout_height="35dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/custom_spinner_unselected"
-                    android:spinnerMode="dialog"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <Spinner
-                    android:id="@+id/spinnerisUntact"
-                    android:layout_width="0dp"
-                    android:layout_height="35dp"
-                    android:layout_marginStart="16dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/custom_spinner_unselected"
-                    android:spinnerMode="dialog"
-                    app:layout_constraintStart_toEndOf="@+id/spinnerRegion"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <Spinner
-                    android:id="@+id/spinnerWeek"
-                    android:layout_width="0dp"
-                    android:layout_height="35dp"
-                    android:layout_marginStart="16dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/custom_spinner_unselected"
-                    android:spinnerMode="dialog"
-                    app:layout_constraintStart_toEndOf="@+id/spinnerMeeting"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-
-            </LinearLayout>
-
-            <!--하단 스피너-->
-            <LinearLayout
-                android:id="@+id/linearSpinner2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="20dp"
-                android:weightSum="3"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/linearSpinner1">
-
-                <Spinner
-                    android:id="@+id/spinnerCategory"
-                    android:layout_width="0dp"
-                    android:layout_height="35dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/custom_spinner_unselected"
-                    android:spinnerMode="dialog"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <Spinner
-                    android:id="@+id/spinnerQuestionAmount"
-                    android:layout_width="0dp"
-                    android:layout_height="35dp"
-                    android:layout_marginStart="16dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/custom_spinner_unselected"
-                    android:spinnerMode="dialog"
-                    app:layout_constraintStart_toEndOf="@+id/spinnerSector"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <Spinner
-                    android:id="@+id/spinnerPeopleAmount"
-                    android:layout_width="0dp"
-                    android:layout_height="35dp"
-                    android:layout_marginStart="16dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/custom_spinner_unselected"
-                    android:spinnerMode="dialog"
-                    app:layout_constraintStart_toEndOf="@+id/spinnerQuestionAmount"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-
-            </LinearLayout>
-
-            <!--제목, 내용 작성 부분-->
+            <!--설문 작성 부분-->
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/constraintLayout"
                 android:layout_width="match_parent"
@@ -165,10 +68,11 @@
                 android:layout_marginEnd="8dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/linearSpinner2">
+                app:layout_constraintTop_toBottomOf="@id/tvDetail">
 
+                <!--첫 번째 설문-->
                 <TextView
-                    android:id="@+id/emojiSurveyTitle"
+                    android:id="@+id/emojiSurvey1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
@@ -179,19 +83,19 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
-                    android:id="@+id/tvSurveyTitle"
+                    android:id="@+id/tvSurvey1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="7dp"
                     android:fontFamily="@font/nanum_square_round_r"
-                    android:text="제목을 작성해주세요 (30자 제한)"
+                    android:text="첫 번째 질문을 작성해주세요 (질문 25자 제한)"
                     android:textSize="12sp"
-                    app:layout_constraintBottom_toBottomOf="@+id/emojiSurveyTitle"
-                    app:layout_constraintStart_toEndOf="@+id/emojiSurveyTitle"
-                    app:layout_constraintTop_toTopOf="@+id/emojiSurveyTitle" />
+                    app:layout_constraintBottom_toBottomOf="@+id/emojiSurvey1"
+                    app:layout_constraintStart_toEndOf="@+id/emojiSurvey1"
+                    app:layout_constraintTop_toTopOf="@+id/emojiSurvey1" />
 
                 <View
-                    android:id="@+id/viewTitle"
+                    android:id="@+id/viewSurvey1"
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
                     android:layout_marginStart="8dp"
@@ -201,10 +105,10 @@
                     android:padding="20dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/emojiSurveyTitle" />
+                    app:layout_constraintTop_toBottomOf="@+id/emojiSurvey1" />
 
                 <EditText
-                    android:id="@+id/etSurveyTitle"
+                    android:id="@+id/etSurvey1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
@@ -213,39 +117,41 @@
                     android:layout_marginBottom="16dp"
                     android:background="@drawable/custom_et_gray"
                     android:fontFamily="@font/nanum_square_round_r"
-                    android:maxLength="30"
+                    android:textSize="12sp"
+                    android:maxLength="25"
                     android:padding="10dp"
                     android:gravity="top"
                     android:privateImeOptions="defaultInputmode=korean"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/viewTitle" />
+                    app:layout_constraintTop_toBottomOf="@+id/viewSurvey1" />
 
+                <!--두 번째 설문-->
                 <TextView
-                    android:id="@+id/emojiSurveyContent"
+                    android:id="@+id/emojiSurvey2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
-                    android:layout_marginTop="24dp"
+                    android:layout_marginTop="16dp"
                     android:text="📝"
                     android:textSize="16sp"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/etSurveyTitle" />
+                    app:layout_constraintTop_toBottomOf ="@+id/etSurvey1" />
 
                 <TextView
-                    android:id="@+id/tvSurveyContent"
+                    android:id="@+id/tvSurvey2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="7dp"
                     android:fontFamily="@font/nanum_square_round_r"
-                    android:text="내용을 작성해주세요 (150자 제한)"
+                    android:text="두 번째 질문을 작성해주세요 (질문 25자 제한)"
                     android:textSize="12sp"
-                    app:layout_constraintBottom_toBottomOf="@+id/emojiSurveyContent"
-                    app:layout_constraintStart_toEndOf="@+id/emojiSurveyContent"
-                    app:layout_constraintTop_toTopOf="@+id/emojiSurveyContent" />
+                    app:layout_constraintBottom_toBottomOf="@+id/emojiSurvey2"
+                    app:layout_constraintStart_toEndOf="@+id/emojiSurvey2"
+                    app:layout_constraintTop_toTopOf="@+id/emojiSurvey2" />
 
                 <View
-                    android:id="@+id/viewContent"
+                    android:id="@+id/viewSurvey2"
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
                     android:layout_marginStart="8dp"
@@ -255,10 +161,10 @@
                     android:padding="20dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/emojiSurveyContent" />
+                    app:layout_constraintTop_toBottomOf="@+id/emojiSurvey2" />
 
                 <EditText
-                    android:id="@+id/etSurveyContent"
+                    android:id="@+id/etSurvey2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
@@ -267,14 +173,14 @@
                     android:layout_marginBottom="16dp"
                     android:background="@drawable/custom_et_gray"
                     android:fontFamily="@font/nanum_square_round_r"
-                    android:gravity="top"
-                    android:maxLength="150"
+                    android:textSize="12sp"
+                    android:maxLength="25"
                     android:padding="10dp"
+                    android:gravity="top"
                     android:privateImeOptions="defaultInputmode=korean"
-                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/viewContent" />
+                    app:layout_constraintTop_toBottomOf="@+id/viewSurvey2" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -282,9 +188,10 @@
                 android:id="@+id/btnNext"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="32dp"
                 android:layout_marginEnd="16dp"
-                android:text="다음"
+                android:fontFamily="@font/nanum_square_round_r"
+                android:text="게시"
                 app:layout_constraintEnd_toEndOf="@+id/constraintLayout"
                 app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
 
@@ -292,6 +199,5 @@
 
 
     </ScrollView>
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

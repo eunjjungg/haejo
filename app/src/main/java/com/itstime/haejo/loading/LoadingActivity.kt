@@ -34,10 +34,12 @@ class LoadingActivity : AppCompatActivity() {
             if(userEmail == "null") {
                 intent = Intent(this, BeginActivity::class.java)
                 startActivity(intent)
+                finish()
             }
             else {
                 intent = Intent(this, MainActivity::class.java)
                 startActivity(intent)
+                finish()
             }
         }, 3000)
 
