@@ -70,6 +70,7 @@ class BeginActivity : AppCompatActivity() {
                     setSharedPrfs(user!!.email.toString(), user!!.displayName.toString())
                     val intent = Intent(this, MainActivity::class.java)
                     startActivity(intent)
+                    finish()
                 } else {
                     Toast.makeText(this, task.result.toString(), Toast.LENGTH_SHORT).show()
                 }

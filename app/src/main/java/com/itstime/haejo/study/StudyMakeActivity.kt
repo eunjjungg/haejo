@@ -1,12 +1,13 @@
 package com.itstime.haejo.study
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import com.itstime.haejo.databinding.ActivityStudyMakeBinding
 import com.itstime.haejo.study.util.StudyMakeAdapter
 
-class StudyMake : AppCompatActivity() {
+class StudyMakeActivity : AppCompatActivity() {
 
     lateinit var binding : ActivityStudyMakeBinding
 
@@ -25,8 +26,10 @@ class StudyMake : AppCompatActivity() {
 
         //모두 작성하고 완료 버튼
         binding.btnNext.setOnClickListener {
-            if(isCheckAllSurveyChecked())
+            if(isCheckAllSurveyChecked()) {
                 storeTmpDataToPrefs()
+                moveSurveyPage()
+            }
         }
     }
 
@@ -77,8 +80,17 @@ class StudyMake : AppCompatActivity() {
             return true
     }
 
-    //각 데이터들 Shared Preference에 일시적으로 넣기
+    //각 데이터들 Shared Preference에 일시적으로 넣기 or 방법 생각...
     private fun storeTmpDataToPrefs() {
 
+    }
+
+    private fun moveSurveyPage() {
+        val questionAmount = binding.spinnerQuestionAmount.selectedItemPosition
+        when(questionAmount) {
+            1 -> startActivity(Intent(this, StudyMakeSurvey1Activity::class.java))
+            2 -> startActivity(Intent(this, StudyMakeSurvey2Activity::class.java))
+            3 -> startActivity(Intent(this, StudyMakeSurvey3Activity::class.java))
+        }
     }
 }

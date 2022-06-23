@@ -11,7 +11,22 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Haejo">
         <activity
-            android:name=".loading.LoadingActivity"
+            android:name=".study.StudyApply3Activity"
+            android:exported="false" />
+        <activity
+            android:name=".study.StudyApply2Activity"
+            android:exported="false" />
+        <activity
+            android:name=".study.StudyMakeSurvey3Activity"
+            android:exported="false" />
+        <activity
+            android:name=".study.StudyMakeSurvey2Activity"
+            android:exported="false" />
+        <activity
+            android:name=".study.StudyMakeSurvey1Activity"
+            android:exported="false" />
+        <activity
+            android:name=".study.StudyMakeActivity"
             android:exported="false" />
         <activity
             android:name=".mypage.MypageSetting"
@@ -20,13 +35,13 @@
             android:name=".BeginActivity"
             android:exported="false" />
         <activity
-            android:name=".study.StudyApplyActivity"
+            android:name=".study.StudyApply1Activity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
             android:exported="false" />
         <activity
-            android:name=".study.StudyMake"
+            android:name=".loading.LoadingActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
