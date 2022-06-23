@@ -2,16 +2,30 @@
 <resources>
 
     <string-array name="region">
-        <item>지역</item>
+        <item>지역 선택</item>
+        <item>비대면</item>
         <item>서울</item>
         <item>경기</item>
+        <item>인천</item>
+        <item>강원</item>
+        <item>대전</item>
+        <item>세종</item>
+        <item>충남</item>
+        <item>충북</item>
         <item>부산</item>
+        <item>울산</item>
+        <item>경남</item>
+        <item>경북</item>
+        <item>대구</item>
         <item>광주</item>
-        <item>구현예정</item>
+        <item>경북</item>
+        <item>전남</item>
+        <item>전북</item>
+        <item>제주</item>
     </string-array>
 
     <string-array name="week">
-        <item>요일</item>
+        <item>요일 선택</item>
         <item>월</item>
         <item>화</item>
         <item>수</item>
@@ -19,6 +33,36 @@
         <item>금</item>
         <item>토</item>
         <item>일</item>
+    </string-array>
+
+    <string-array name="isUntact">
+        <item>대면 여부</item>
+        <item>대면</item>
+        <item>비대면</item>
+    </string-array>
+
+    <string-array name="category">
+        <item>분야 선택</item>
+        <item>어학</item>
+        <item>취업</item>
+        <item>취미</item>
+        <item>기타</item>
+    </string-array>
+
+    <string-array name="questionAmount">
+        <item>설문 개수</item>
+        <item>1개</item>
+        <item>2개</item>
+        <item>3개</item>
+    </string-array>
+
+    <string-array name="peopleAmount">
+        <item>인원 선택</item>
+        <item>4인 이하</item>
+        <item>6인 이하</item>
+        <item>8인 이하</item>
+        <item>10인 이하</item>
+        <item>대규모</item>
     </string-array>
 
 </resources>

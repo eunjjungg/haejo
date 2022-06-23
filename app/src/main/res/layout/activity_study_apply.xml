@@ -8,26 +8,14 @@
 
     <ImageButton
         android:id="@+id/btnBack"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:background="#00000000"
         android:src="@drawable/ic_back"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/logo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:autoSizeTextType="uniform"
-        android:fontFamily="@font/nanum_square_round_eb"
-        android:text="UStudy"
-        android:textSize="40sp"
-        app:layout_constraintStart_toStartOf="@+id/btnBack"
-        app:layout_constraintTop_toBottomOf="@+id/btnBack" />
 
 
     <androidx.recyclerview.widget.RecyclerView
@@ -40,7 +28,7 @@
         app:layout_constraintBottom_toTopOf="@+id/guideline2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/logo" />
+        app:layout_constraintTop_toBottomOf="@+id/btnBack" />
 
 
     <Button
