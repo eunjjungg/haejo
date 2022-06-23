@@ -60,7 +60,7 @@ class MainHomeFragment : Fragment() {
             })
         }
     }
-
+    
     //region, week spinner 연결
     fun spinnerAdapterConnect() {
         binding.spinnerRegion.adapter =
@@ -70,7 +70,7 @@ class MainHomeFragment : Fragment() {
             ArrayAdapter.createFromResource(binding.root.context, R.array.week, android.R.layout.simple_spinner_dropdown_item)
     }
 
-    //각 스피너에 기본 값이 아닌 특정 값을 넣었을 때 초록색 스피너로 변화하도록 설정
+    //각 스피너에 기본 값이 아닌 특정 값을 넣었을 때 보라색 스피너로 변화하도록 설정
     //기본 값 position == 0 일 때는 회색 스피너 그대로
     fun spinnerSelection() {
         binding.spinnerWeek.onItemSelectedListener = object: AdapterView.OnItemSelectedListener {

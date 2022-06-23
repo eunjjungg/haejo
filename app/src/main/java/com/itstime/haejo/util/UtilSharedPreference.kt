@@ -23,12 +23,4 @@ class UtilSharedPreference(context: Context) {
         prefs.edit().putString("name", str).apply()
     }
 
-    fun getAutoLogin(): String {
-        return prefs.getString("autoLogin", null).toString()
-    }
-
-    fun setAutoLogin(response: String) {
-        prefs.edit().putString("autoLogin", response).apply()
-    }
-
 }

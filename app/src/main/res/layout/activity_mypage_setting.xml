@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:padding="30dp"
     android:orientation="vertical"
-    tools:context=".setting.SettingMypage">
+    tools:context=".mypage.MypageSetting">
 
     <TextView
         android:layout_width="match_parent"

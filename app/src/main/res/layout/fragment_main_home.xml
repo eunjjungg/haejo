@@ -34,7 +34,7 @@
         app:layout_constraintTop_toTopOf="@+id/logoTopGuide" />
 
     <ImageButton
-        android:id="@+id/ibtnNotification"
+        android:id="@+id/btnNotification"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="32dp"

@@ -77,7 +77,6 @@ class BeginActivity : AppCompatActivity() {
     }
 
     private fun setSharedPrfs(email: String, name: String) {
-        AppSetting.prefs.setAutoLogin("Yes")
         AppSetting.prefs.setEmail(email)
         AppSetting.prefs.setName(name)
     }
