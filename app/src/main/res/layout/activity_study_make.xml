@@ -284,6 +284,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="16dp"
+                android:fontFamily="@font/nanum_square_round_r"
                 android:text="다음"
                 app:layout_constraintEnd_toEndOf="@+id/constraintLayout"
                 app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />

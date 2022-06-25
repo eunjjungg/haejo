@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".study.StudyInfoActivity">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="24dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        >
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp">
+
+            <!--back pressed-->
+            <ImageButton
+                android:id="@+id/btnBack"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:background="#00000000"
+                android:src="@drawable/ic_back"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+            <!--back pressed-->
+
+            <!--작성자 info-->
+            <ImageButton
+                android:id="@+id/btnBookmark"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:background="#00000000"
+                android:src="@drawable/ic_bookmark_unselected"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constLayoutWriterInfo"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btnBack">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/imgWriterProfileImage"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="#00000000"
+                    android:src="@drawable/img_logo_purple"
+                    app:civ_border_width=".8dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tvWriterNickname"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:fontFamily="@font/nanum_square_round_r"
+                    android:text="작성자 nickname"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/imgWriterProfileImage"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <!--스터디 태그-->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constLayoutStudyTag"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="12dp"
+                android:layout_marginTop="24dp"
+                android:background="@drawable/custom_border_transparent_selected"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/constLayoutWriterInfo">
+
+                <TextView
+                    android:id="@+id/tvTagRegion"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/custom_border_transparent_unselected"
+                    android:fontFamily="@font/nanum_square_round_r"
+                    android:paddingHorizontal="15dp"
+                    android:paddingVertical="5dp"
+                    android:text="#지역"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tvTagIsUntact"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:background="@drawable/custom_border_transparent_unselected"
+                    android:fontFamily="@font/nanum_square_round_r"
+                    android:paddingHorizontal="15dp"
+                    android:paddingVertical="5dp"
+                    android:text="#비대면"
+                    app:layout_constraintStart_toEndOf="@+id/tvTagRegion"
+                    app:layout_constraintTop_toTopOf="@+id/tvTagRegion" />
+
+                <TextView
+                    android:id="@+id/tvTagWeek"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:background="@drawable/custom_border_transparent_unselected"
+                    android:fontFamily="@font/nanum_square_round_r"
+                    android:paddingHorizontal="15dp"
+                    android:paddingVertical="5dp"
+                    android:text="#요일"
+                    app:layout_constraintStart_toEndOf="@+id/tvTagIsUntact"
+                    app:layout_constraintTop_toTopOf="@+id/tvTagRegion" />
+
+                <TextView
+                    android:id="@+id/tvTagSector"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:background="@drawable/custom_border_transparent_unselected"
+                    android:fontFamily="@font/nanum_square_round_r"
+                    android:paddingHorizontal="15dp"
+                    android:paddingVertical="5dp"
+                    android:text="#분야"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/tvTagRegion"
+                    app:layout_constraintTop_toBottomOf="@id/tvTagRegion" />
+
+                <TextView
+                    android:id="@+id/tvPeopleAmount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:background="@drawable/custom_border_transparent_unselected"
+                    android:fontFamily="@font/nanum_square_round_r"
+                    android:paddingHorizontal="15dp"
+                    android:paddingVertical="5dp"
+                    android:text="#10인 이하"
+                    app:layout_constraintBottom_toBottomOf="@+id/tvTagSector"
+                    app:layout_constraintStart_toEndOf="@+id/tvTagSector"
+                    app:layout_constraintTop_toTopOf="@+id/tvTagSector" />
+
+                <TextView
+                    android:id="@+id/tvStatus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:background="@drawable/custom_border_transparent_unselected"
+                    android:fontFamily="@font/nanum_square_round_r"
+                    android:paddingHorizontal="15dp"
+                    android:paddingVertical="5dp"
+                    android:text="#모집중"
+                    app:layout_constraintBottom_toBottomOf="@+id/tvTagSector"
+                    app:layout_constraintStart_toEndOf="@+id/tvPeopleAmount"
+                    app:layout_constraintTop_toTopOf="@+id/tvTagSector" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <!--제목 + 내용 + 질문(RecyclerView)-->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constLayoutContent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="12dp"
+                android:layout_marginTop="24dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/constLayoutStudyTag">
+
+                <!--스터디 제목-->
+                <TextView
+                    android:id="@+id/emojiTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="7dp"
+                    android:fontFamily="@font/nanum_square_round_b"
+                    android:text="제목을 작성해주세요 (30자 제한)"
+                    android:textSize="12sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <View
+                    android:id="@+id/viewTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:background="@color/black"
+                    android:padding="20dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/emojiTitle" />
+
+                <!--스터디 내용-->
+                <TextView
+                    android:id="@+id/tvContent"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="16dp"
+                    android:background="@drawable/custom_et_gray"
+                    android:fontFamily="@font/nanum_square_round_r"
+                    android:lineSpacingMultiplier="1.35"
+                    android:padding="10dp"
+                    app:layout_constraintEnd_toEndOf="@+id/viewTitle"
+                    app:layout_constraintStart_toStartOf="@+id/viewTitle"
+                    app:layout_constraintTop_toBottomOf="@+id/viewTitle" />
+
+                <!--스터디 질문-->
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recycSurvey"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginBottom="16dp"
+                    android:overScrollMode="never"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/tvContent"
+                    app:layout_constraintStart_toStartOf="@+id/tvContent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvContent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constLayoutComment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="12dp"
+                android:layout_marginTop="24dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/constLayoutContent">
+
+                <TextView
+                    android:id="@+id/tvCommentTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="7dp"
+                    android:fontFamily="@font/nanum_square_round_b"
+                    android:text="🗨️ 댓글"
+                    android:textSize="12sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <View
+                    android:id="@+id/viewComment"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:background="@color/black"
+                    android:padding="20dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvCommentTitle" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="8dp"
+                    android:layout_marginTop="16dp"
+                    android:overScrollMode="never"
+                    app:layout_constraintEnd_toEndOf="@+id/viewComment"
+                    app:layout_constraintStart_toStartOf="@+id/viewComment"
+                    app:layout_constraintTop_toBottomOf="@+id/viewComment" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <Button
+                android:id="@+id/btnNext"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="지원하기"
+                android:fontFamily="@font/nanum_square_round_r"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="16dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/constLayoutComment" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
