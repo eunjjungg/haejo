@@ -1,9 +1,7 @@
 package com.itstime.haejo.study.util
 
-data class SurveyData(
-    val items: List<Item>
-)
 
-data class Item(
+data class SurveyData(
+    var surveyNum: Int,
     var SurveyTitle: String
 )

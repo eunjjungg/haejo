@@ -23,6 +23,9 @@
     <color name="customBlack">#020202</color>
     <color name="customPurple">#95A1F1</color>
     <color name="customPurpleLight">#ADB6EF</color>
+    <color name="customPurpleTransparent">#92ADB6EF</color>
     <color name="customPurpleDark">#7E8DF1</color>
+    <color name="customGrayTransparent">#A1F6F6F6</color>
+    <color name="customGrayDark">#7C7C7C</color>
 
 </resources>
