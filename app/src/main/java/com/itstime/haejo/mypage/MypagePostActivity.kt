@@ -20,6 +20,10 @@ class MypagePostActivity : AppCompatActivity() {
         binding = ActivityMypagePostBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        binding.btnBack.setOnClickListener {
+            onBackPressed()
+        }
+
         setRecyclerPostList()
     }
 
