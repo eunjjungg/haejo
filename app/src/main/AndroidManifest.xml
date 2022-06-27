@@ -11,6 +11,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Haejo">
         <activity
+            android:name=".study.StudyInfoActivity"
+            android:exported="false" />
+        <activity
             android:name=".loading.LoadingActivity"
             android:exported="false" />
         <activity
@@ -44,7 +47,7 @@
             android:name=".MainActivity"
             android:exported="false" />
         <activity
-            android:name=".study.StudyInfoActivity"
+            android:name=".mypage.MypagePostActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
