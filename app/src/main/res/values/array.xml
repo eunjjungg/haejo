@@ -65,4 +65,10 @@
         <item>대규모</item>
     </string-array>
 
+    <string-array name="participationStatus">
+        <item>참여 여부</item>
+        <item>참여 중</item>
+        <item>참여 완료</item>
+    </string-array>
+
 </resources>

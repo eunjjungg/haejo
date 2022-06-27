@@ -11,6 +11,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Haejo">
         <activity
+            android:name=".mypage.MypageBookmarkActivity"
+            android:exported="false" />
+        <activity
+            android:name=".mypage.MypageCommentActivity"
+            android:exported="false" />
+        <activity
             android:name=".mypage.MypagePostActivity"
             android:exported="false" />
         <activity
@@ -50,7 +56,7 @@
             android:name=".MainActivity"
             android:exported="false" />
         <activity
-            android:name=".mypage.MypageCommentActivity"
+            android:name=".mypage.MypageStudyActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
