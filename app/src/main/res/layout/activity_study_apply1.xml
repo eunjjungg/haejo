@@ -117,6 +117,7 @@
                     android:layout_marginBottom="16dp"
                     android:background="@drawable/custom_et_gray"
                     android:fontFamily="@font/nanum_square_round_r"
+                    android:lineSpacingMultiplier="1.35"
                     android:textSize="12sp"
                     android:hint="답변은 60자 제한입니다."
                     android:maxLength="25"

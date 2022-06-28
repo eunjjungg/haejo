@@ -225,6 +225,7 @@
                     android:background="@drawable/custom_et_gray"
                     android:fontFamily="@font/nanum_square_round_r"
                     android:lineSpacingMultiplier="1.35"
+                    android:textSize="12sp"
                     android:padding="10dp"
                     app:layout_constraintEnd_toEndOf="@+id/viewTitle"
                     app:layout_constraintStart_toStartOf="@+id/viewTitle"
