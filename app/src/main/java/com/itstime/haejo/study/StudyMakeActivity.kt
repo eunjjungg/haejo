@@ -3,6 +3,9 @@ package com.itstime.haejo.study
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.KeyEvent
+import android.view.inputmethod.EditorInfo
+import android.widget.EditText
 import android.widget.Toast
 import com.itstime.haejo.databinding.ActivityStudyMakeBinding
 import com.itstime.haejo.study.util.StudyMakeAdapter
@@ -31,6 +34,7 @@ class StudyMakeActivity : AppCompatActivity() {
                 moveSurveyPage()
             }
         }
+
     }
 
 
@@ -85,6 +89,7 @@ class StudyMakeActivity : AppCompatActivity() {
 
     }
 
+    //각각의 questionAmount에 따라 surveypage로 이동
     private fun moveSurveyPage() {
         val questionAmount = binding.spinnerQuestionAmount.selectedItemPosition
         when(questionAmount) {
@@ -93,4 +98,6 @@ class StudyMakeActivity : AppCompatActivity() {
             3 -> startActivity(Intent(this, StudyMakeSurvey3Activity::class.java))
         }
     }
+
+
 }

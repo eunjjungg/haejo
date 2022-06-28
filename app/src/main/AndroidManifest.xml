@@ -11,10 +11,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Haejo">
         <activity
-            android:name=".mypage.MypageBookmarkActivity"
+            android:name=".MainActivity"
             android:exported="false" />
         <activity
-            android:name=".mypage.MypageCommentActivity"
+            android:name=".mypage.MypageBookmarkActivity"
             android:exported="false" />
         <activity
             android:name=".mypage.MypagePostActivity"
@@ -29,10 +29,10 @@
             android:name=".study.StudyApply3Activity"
             android:exported="false" />
         <activity
-            android:name=".study.StudyApply2Activity"
+            android:name=".study.StudyMakeSurvey3Activity"
             android:exported="false" />
         <activity
-            android:name=".study.StudyMakeSurvey3Activity"
+            android:name=".mypage.MypageStudyActivity"
             android:exported="false" />
         <activity
             android:name=".study.StudyMakeSurvey2Activity"
@@ -41,7 +41,7 @@
             android:name=".study.StudyMakeSurvey1Activity"
             android:exported="false" />
         <activity
-            android:name=".study.StudyMakeActivity"
+            android:name=".mypage.MypageCommentActivity"
             android:exported="false" />
         <activity
             android:name=".mypage.MypageSetting"
@@ -53,10 +53,10 @@
             android:name=".study.StudyApply1Activity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".study.StudyApply2Activity"
             android:exported="false" />
         <activity
-            android:name=".mypage.MypageStudyActivity"
+            android:name=".study.StudyMakeActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
