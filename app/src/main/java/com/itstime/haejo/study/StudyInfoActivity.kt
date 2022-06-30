@@ -24,6 +24,10 @@ class StudyInfoActivity : AppCompatActivity() {
 
         testCode()
         setRecyclerSurvey()
+
+        binding.btnBack.setOnClickListener {
+            onBackPressed()
+        }
     }
 
     //db에서 받아오는 값으로 data 수정 필요

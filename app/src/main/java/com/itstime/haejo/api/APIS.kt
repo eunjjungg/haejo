@@ -5,24 +5,32 @@ import com.google.gson.GsonBuilder
 import retrofit2.Call
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import retrofit2.converter.scalars.ScalarsConverterFactory
 import retrofit2.http.Body
+import retrofit2.http.GET
 import retrofit2.http.POST
+import retrofit2.http.Query
 
 interface APIS {
 
-    @POST("/user")
-    fun post_user(
-        @Body jsonParams: UserModel
+    @POST("api/member")
+    fun postUserTest(
+        @Body jsonParams: UploadUserModel
     ): Call<PostResult>
 
+    @GET("api/member/1")
+    fun getUserTest(
+    ): Call<UserModel>
+
     companion object {
-        private const val BASE_URL = ""
+        private const val BASE_URL = "http://44.225.48.165:8080/"
 
         fun create(): APIS {
             val gson: Gson = GsonBuilder().setLenient().create()
 
             return Retrofit.Builder()
                 .baseUrl(BASE_URL)
+                .addConverterFactory(ScalarsConverterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create(gson))
                 .build()
                 .create(APIS::class.java)

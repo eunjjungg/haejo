@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".study.StudyMakeSurvey1Activity">
+    tools:context=".study.StudyMakeSurveyActivity">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -59,8 +59,8 @@
                 app:layout_constraintTop_toBottomOf="@+id/tvTitle" />
 
             <!--설문 작성 부분-->
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/constraintLayout"
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycSurvey"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
@@ -68,67 +68,9 @@
                 android:layout_marginEnd="8dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvDetail">
-
-                <!--첫 번째 설문-->
-                <TextView
-                    android:id="@+id/emojiSurvey1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginTop="8dp"
-                    android:text="📝"
-                    android:textSize="16sp"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <TextView
-                    android:id="@+id/tvSurvey1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="7dp"
-                    android:fontFamily="@font/nanum_square_round_r"
-                    android:text="첫 번째 질문을 작성해주세요 (질문 25자 제한)"
-                    android:textSize="12sp"
-                    app:layout_constraintBottom_toBottomOf="@+id/emojiSurvey1"
-                    app:layout_constraintStart_toEndOf="@+id/emojiSurvey1"
-                    app:layout_constraintTop_toTopOf="@+id/emojiSurvey1" />
-
-                <View
-                    android:id="@+id/viewSurvey1"
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginEnd="8dp"
-                    android:background="@color/black"
-                    android:padding="20dp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/emojiSurvey1" />
-
-                <EditText
-                    android:id="@+id/etSurvey1"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginEnd="16dp"
-                    android:layout_marginBottom="16dp"
-                    android:background="@drawable/custom_et_gray"
-                    android:fontFamily="@font/nanum_square_round_r"
-                    android:textSize="12sp"
-                    android:maxLength="25"
-                    android:padding="10dp"
-                    android:gravity="top"
-                    android:inputType="text"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/viewSurvey1" />
+                app:layout_constraintTop_toBottomOf="@id/tvDetail"/>
 
 
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
 
             <Button
                 android:id="@+id/btnNext"
@@ -138,8 +80,8 @@
                 android:layout_marginEnd="16dp"
                 android:fontFamily="@font/nanum_square_round_r"
                 android:text="게시"
-                app:layout_constraintEnd_toEndOf="@+id/constraintLayout"
-                app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
+                app:layout_constraintEnd_toEndOf="@+id/recycSurvey"
+                app:layout_constraintTop_toBottomOf="@+id/recycSurvey" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

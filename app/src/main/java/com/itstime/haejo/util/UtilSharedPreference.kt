@@ -23,4 +23,30 @@ class UtilSharedPreference(context: Context) {
         prefs.edit().putString("name", str).apply()
     }
 
+    fun getTmpString0(): String? {
+        return prefs.getString("tmpString1", null)
+    }
+
+    fun setTmpString0(str: String?) {
+        prefs.edit().putString("tmpString1", str).apply()
+    }
+
+    fun getTmpString1(): String? {
+        return prefs.getString("tmpString3", null)
+    }
+
+    fun setTmpString1(str: String?) {
+        prefs.edit().putString("tmpString3", str).apply()
+    }
+
+    fun getTmpString2(): String? {
+        return prefs.getString("tmpString2", null)
+    }
+
+    fun setTmpString2(str: String?) {
+        prefs.edit().putString("tmpString2", str).apply()
+    }
+
+
+
 }
