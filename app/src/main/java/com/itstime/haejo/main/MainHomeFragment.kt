@@ -2,6 +2,7 @@ package com.itstime.haejo.main
 
 import android.content.Intent
 import android.os.Bundle
+import android.service.autofill.UserData
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -10,11 +11,14 @@ import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Spinner
+import android.widget.Toast
 import androidx.core.content.ContextCompat
 import com.google.firebase.auth.FirebaseAuth
+import com.google.gson.annotations.SerializedName
 import com.itstime.haejo.R
 import com.itstime.haejo.api.APIS
 import com.itstime.haejo.api.PostResult
+import com.itstime.haejo.api.UploadUserModel
 import com.itstime.haejo.api.UserModel
 import com.itstime.haejo.databinding.FragmentMainHomeBinding
 import com.itstime.haejo.study.StudyMakeActivity
@@ -48,20 +52,35 @@ class MainHomeFragment : Fragment() {
     fun checkApi() {
         binding.btnApiCheck.setOnClickListener {
             val mUser = FirebaseAuth.getInstance().currentUser
-            val userData = UserModel(mUser!!.email, mUser!!.displayName)
             val api = APIS.create()
 
-            api.post_user(userData).enqueue(object: Callback<PostResult>{
+            var uploadTmp: UploadUserModel = UploadUserModel(88, "dong@email.com", "gilldong", "dong")
+            val callPostTest = api.postUserTest(uploadTmp)
+            callPostTest.enqueue(object : Callback<PostResult>{
                 override fun onResponse(call: Call<PostResult>, response: Response<PostResult>) {
-                    Log.d("api",response.toString())
-                    Log.d("api", response.body().toString())
+                    Log.d("retrofit server", response.body().toString())
                 }
 
                 override fun onFailure(call: Call<PostResult>, t: Throwable) {
-                    TODO("Not yet implemented")
+                    Log.d("retrofit server error", t.message.toString())
                 }
 
             })
+
+            /*val callGetTest = api.getUserTest()
+            callGetTest.enqueue(object : Callback<UserModel> {
+                override fun onResponse(call: Call<UserModel>, response: Response<UserModel>) {
+                    Log.d("retrofit server", response.body().toString())
+                    Toast.makeText(binding.root.context,
+                        response.toString(), Toast.LENGTH_SHORT).show()
+                }
+
+                override fun onFailure(call: Call<UserModel>, t: Throwable) {
+                    Log.d("retrofit server error", t.message.toString())
+                }
+
+            })*/
+
         }
     }
     

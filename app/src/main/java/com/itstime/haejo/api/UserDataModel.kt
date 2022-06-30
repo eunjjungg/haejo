@@ -1,9 +1,29 @@
 package com.itstime.haejo.api
 
+import com.google.gson.annotations.SerializedName
+
 data class UserModel(
-    var userEmail: String? = null,
-    var userName: String? = null,
-    var nickName: String? = null
+    @SerializedName("id")
+    var memberId: Long? = null,
+    @SerializedName("battery")
+    var battery: Int? = null,
+    @SerializedName("email")
+    var email: String? = null,
+    @SerializedName("name")
+    var name: String? = null,
+    @SerializedName("nickname")
+    var nickname: String? = null
+)
+
+data class UploadUserModel(
+    @SerializedName("battery")
+    var battery: Int? = null,
+    @SerializedName("email")
+    var email: String? = null,
+    @SerializedName("name")
+    var name: String? = null,
+    @SerializedName("nickname")
+    var nickname: String? = null
 )
 
 data class PostResult(
