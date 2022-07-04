@@ -8,11 +8,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.AdapterView
-import android.widget.ArrayAdapter
-import android.widget.Spinner
-import android.widget.Toast
+import android.widget.*
 import androidx.core.content.ContextCompat
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.gson.annotations.SerializedName
 import com.itstime.haejo.R
@@ -21,7 +20,9 @@ import com.itstime.haejo.api.PostResult
 import com.itstime.haejo.api.UploadUserModel
 import com.itstime.haejo.api.UserModel
 import com.itstime.haejo.databinding.FragmentMainHomeBinding
+import com.itstime.haejo.main.util.MainHomePostAdapter
 import com.itstime.haejo.study.StudyMakeActivity
+import com.itstime.haejo.util.PostData
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -30,6 +31,12 @@ class MainHomeFragment : Fragment() {
 
     lateinit var binding : FragmentMainHomeBinding
 
+    //current page
+    private var page = 1
+    private var POST_PER_PAGE = 10
+    private lateinit var mainHomePostAdapter: MainHomePostAdapter
+    private val postDataList = ArrayList<PostData>()
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -37,51 +44,25 @@ class MainHomeFragment : Fragment() {
         // Inflate the layout for this fragment
         binding = FragmentMainHomeBinding.inflate(inflater, container, false)
 
+        //spinner setting
         spinnerAdapterConnect()
         spinnerSelection()
-        checkApi()
 
         binding.fltbtnMakeStudy.setOnClickListener {
             startActivity(Intent(binding.root.context, StudyMakeActivity::class.java))
         }
 
-        return binding.root
-    }
-
-    //button setting
-    fun checkApi() {
-        binding.btnApiCheck.setOnClickListener {
-            val mUser = FirebaseAuth.getInstance().currentUser
-            val api = APIS.create()
-
-            var uploadTmp: UploadUserModel = UploadUserModel(88, "dong@email.com", "gilldong", "dong")
-            val callPostTest = api.postUserTest(uploadTmp)
-            callPostTest.enqueue(object : Callback<PostResult>{
-                override fun onResponse(call: Call<PostResult>, response: Response<PostResult>) {
-                    Log.d("retrofit server", response.body().toString())
-                }
-
-                override fun onFailure(call: Call<PostResult>, t: Throwable) {
-                    Log.d("retrofit server error", t.message.toString())
-                }
-
-            })
-
-            /*val callGetTest = api.getUserTest()
-            callGetTest.enqueue(object : Callback<UserModel> {
-                override fun onResponse(call: Call<UserModel>, response: Response<UserModel>) {
-                    Log.d("retrofit server", response.body().toString())
-                    Toast.makeText(binding.root.context,
-                        response.toString(), Toast.LENGTH_SHORT).show()
-                }
-
-                override fun onFailure(call: Call<UserModel>, t: Throwable) {
-                    Log.d("retrofit server error", t.message.toString())
-                }
-
-            })*/
-
+        binding.recycPost.apply {
+            binding.recycPost.layoutManager = LinearLayoutManager(context)
+            mainHomePostAdapter = MainHomePostAdapter()
+            postDataList.addAll(dummy1("first"))
+            mainHomePostAdapter.items = postDataList
+            binding.recycPost.adapter = mainHomePostAdapter
+            //here: 데이터 추가 작업 필요!
         }
+        recycPostAddScrollListener()
+
+        return binding.root
     }
     
     //region, week spinner 연결
@@ -148,4 +129,42 @@ class MainHomeFragment : Fragment() {
         }
     }
 
+    fun recycPostAddScrollListener() {
+        binding.recycPost.addOnScrollListener(object : RecyclerView.OnScrollListener() {
+            override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+                super.onScrolled(recyclerView, dx, dy)
+
+                val lastVisibleItemPosition =
+                    (recyclerView.layoutManager as LinearLayoutManager?)!!.findLastCompletelyVisibleItemPosition()
+                val itemTotalCount = recyclerView.adapter!!.itemCount - 1
+
+                //scroll 끝에 도달했는지 확인
+                if(!binding.recycPost.canScrollVertically(1) && lastVisibleItemPosition == itemTotalCount) {
+                    //DATA 받아오는 작업 IF 남은 데이터가 있을 시에만 LOADING 삭제, 남은 데이터가 없는 경우에는 마지막을 구분할 수 있게 TITLE에 " "가 아닌 다른 값을 삽입
+                    mainHomePostAdapter.deleteLoading()
+
+                    postDataList.addAll(dummy1("$page"))
+                    //데이터 추가 작업!
+                    mainHomePostAdapter.notifyItemInserted(page++ * POST_PER_PAGE)
+                }
+            }
+        })
+    }
+
+    fun dummy1(sequence: String): ArrayList<PostData> {
+        val dummyList1 = ArrayList<PostData>()
+        dummyList1.apply {
+            add(PostData(sequence, "부산", "대면", "20.02.11 20:29", 4))
+            add(PostData(sequence, "부산", "대면", "20.02.11 20:29", 4))
+            add(PostData(sequence, "부산", "대면", "20.02.11 20:29", 4))
+            add(PostData(sequence, "부산", "대면", "20.02.11 20:29", 4))
+            add(PostData(sequence, "부산", "대면", "20.02.11 20:29", 4))
+            add(PostData(sequence, "부산", "대면", "20.02.11 20:29", 4))
+            add(PostData(sequence, "부산", "대면", "20.02.11 20:29", 4))
+            add(PostData(sequence, "부산", "대면", "20.02.11 20:29", 4))
+            add(PostData(sequence, "부산", "대면", "20.02.11 20:29", 4))
+            add(PostData(" ", "부산", "대면", "20.02.11 20:29", 4))
+        }
+        return dummyList1
+    }
 }
