@@ -1,10 +1,9 @@
-package com.itstime.haejo.loading
+package com.itstime.haejo.begin
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
-import com.airbnb.lottie.LottieAnimationView
 import com.itstime.haejo.BeginActivity
 import com.itstime.haejo.MainActivity
 import com.itstime.haejo.databinding.ActivityLoadingBinding
@@ -23,9 +22,9 @@ class LoadingActivity : AppCompatActivity() {
 
 
         //loading animation setting
-        var imgLoading  = binding.imgLoading as LottieAnimationView
+        //var imgLoading  = binding.imgLoading as LottieAnimationView
         getEmailName()
-        imgLoading.playAnimation()
+        //imgLoading.playAnimation()
 
         //2 sec loading
         val handler: Handler = Handler()
