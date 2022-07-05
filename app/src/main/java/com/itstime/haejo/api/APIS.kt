@@ -14,7 +14,7 @@ import retrofit2.http.Query
 interface APIS {
 
     @POST("api/member")
-    fun postUserTest(
+    fun postUser(
         @Body jsonParams: UploadUserModel
     ): Call<PostResult>
 
