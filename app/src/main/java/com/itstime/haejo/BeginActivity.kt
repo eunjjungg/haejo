@@ -11,6 +11,7 @@ import com.google.android.gms.common.SignInButton
 import com.google.android.gms.common.api.ApiException
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
+import com.itstime.haejo.begin.BeginSetProfileActivity
 import com.itstime.haejo.databinding.ActivityBeginBinding
 import com.itstime.haejo.util.AppSetting
 
@@ -68,7 +69,7 @@ class BeginActivity : AppCompatActivity() {
                 if (task.isSuccessful) {
                     val user = auth.currentUser
                     setSharedPrfs(user!!.email.toString(), user!!.displayName.toString())
-                    val intent = Intent(this, MainActivity::class.java)
+                    val intent = Intent(this, BeginSetProfileActivity::class.java)
                     startActivity(intent)
                     finish()
                 } else {

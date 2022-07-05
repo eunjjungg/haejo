@@ -6,4 +6,131 @@
     android:layout_height="match_parent"
     tools:context=".begin.BeginSetProfileActivity">
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/tv1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:fontFamily="@font/nanum_square_round_r"
+            android:text="사용할 프로필 이미지를 선택해주세요"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <LinearLayout
+            android:id="@+id/linearProfile1"
+            android:layout_width="wrap_content"
+            android:layout_height="100dp"
+            android:layout_marginTop="32dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv1">
+
+            <ImageButton
+                android:id="@+id/imgProfile1"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginEnd="20dp"
+                android:background="#00000000"
+                android:padding="3dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/img_logo_purple" />
+
+            <ImageButton
+                android:id="@+id/imgProfile2"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:padding="3dp"
+                android:background="#00000000"
+                android:scaleType="fitCenter"
+                android:src="@drawable/img_logo_black" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearProfile2"
+            android:layout_width="wrap_content"
+            android:layout_height="100dp"
+            android:layout_marginTop="16dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearProfile1">
+
+            <ImageButton
+                android:id="@+id/imgProfile3"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginEnd="20dp"
+                android:padding="3dp"
+                android:background="#00000000"
+                android:scaleType="fitCenter"
+                android:src="@drawable/img_logo_trans" />
+
+            <ImageButton
+                android:id="@+id/imgProfile4"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:padding="3dp"
+                android:background="#00000000"
+                android:scaleType="fitCenter"
+                android:src="@drawable/img_logo_white" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="64dp"
+            android:fontFamily="@font/nanum_square_round_r"
+            android:text="사용할 닉네임을 기입해주세요"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearProfile2" />
+
+        <EditText
+            android:id="@+id/etName"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/custom_et_gray"
+            android:fontFamily="@font/nanum_square_round_r"
+            android:inputType="text"
+            android:textAlignment="center"
+            android:maxLength="10"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+        <Button
+            android:id="@+id/btnNext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="64dp"
+            android:layout_marginEnd="32dp"
+            android:layout_marginBottom="24dp"
+            android:fontFamily="@font/nanum_square_round_r"
+            android:text="설정"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/etName" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

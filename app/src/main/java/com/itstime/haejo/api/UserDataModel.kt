@@ -16,14 +16,12 @@ data class UserModel(
 )
 
 data class UploadUserModel(
-    @SerializedName("battery")
-    var battery: Int? = null,
     @SerializedName("email")
     var email: String? = null,
     @SerializedName("name")
     var name: String? = null,
     @SerializedName("nickname")
-    var nickname: String? = null
+    var nickname: String? = null,
 )
 
 data class PostResult(

@@ -23,6 +23,14 @@ class UtilSharedPreference(context: Context) {
         prefs.edit().putString("name", str).apply()
     }
 
+    fun getNickname(): String {
+        return prefs.getString("nickname", null).toString()
+    }
+
+    fun setNickname(str: String) {
+        prefs.edit().putString("nickname", str).apply()
+    }
+
     fun getTmpString0(): String? {
         return prefs.getString("tmpString1", null)
     }
