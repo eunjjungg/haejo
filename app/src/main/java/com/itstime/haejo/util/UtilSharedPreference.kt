@@ -7,6 +7,14 @@ class UtilSharedPreference(context: Context) {
     private val prefs: SharedPreferences =
         context.getSharedPreferences("prefs_name", Context.MODE_PRIVATE)
 
+    fun getMemberId(): Int {
+        return prefs.getInt("memberId", -1)
+    }
+
+    fun setMemberId(id: Int) {
+        prefs.edit().putInt("memberId", id).apply()
+    }
+
     fun getEmail(): String {
         return prefs.getString("email", null).toString()
     }

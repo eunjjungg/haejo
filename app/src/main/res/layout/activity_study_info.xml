@@ -193,7 +193,7 @@
 
                 <!--스터디 제목-->
                 <TextView
-                    android:id="@+id/emojiTitle"
+                    android:id="@+id/tvTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="7dp"
@@ -214,7 +214,7 @@
                     android:padding="20dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/emojiTitle" />
+                    app:layout_constraintTop_toBottomOf="@+id/tvTitle" />
 
                 <!--스터디 내용-->
                 <TextView

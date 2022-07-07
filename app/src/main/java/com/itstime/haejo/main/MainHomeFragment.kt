@@ -15,10 +15,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.gson.annotations.SerializedName
 import com.itstime.haejo.R
-import com.itstime.haejo.api.APIS
-import com.itstime.haejo.api.PostResult
-import com.itstime.haejo.api.UploadUserModel
-import com.itstime.haejo.api.UserModel
+import com.itstime.haejo.api.*
 import com.itstime.haejo.databinding.FragmentMainHomeBinding
 import com.itstime.haejo.main.util.MainHomePostAdapter
 import com.itstime.haejo.study.StudyMakeActivity
@@ -32,10 +29,12 @@ class MainHomeFragment : Fragment() {
     lateinit var binding : FragmentMainHomeBinding
 
     //current page
+    private var itemAmount = 0
+    private var loading = false
     private var page = 1
     private var POST_PER_PAGE = 10
     private lateinit var mainHomePostAdapter: MainHomePostAdapter
-    private val postDataList = ArrayList<PostData>()
+    private var postDataList = ArrayList<PostListDTO>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -48,6 +47,7 @@ class MainHomeFragment : Fragment() {
         spinnerAdapterConnect()
         spinnerSelection()
 
+
         binding.fltbtnMakeStudy.setOnClickListener {
             startActivity(Intent(binding.root.context, StudyMakeActivity::class.java))
         }
@@ -55,11 +55,13 @@ class MainHomeFragment : Fragment() {
         binding.recycPost.apply {
             binding.recycPost.layoutManager = LinearLayoutManager(context)
             mainHomePostAdapter = MainHomePostAdapter()
-            postDataList.addAll(dummy1("first"))
+            itemAmount++
+            postDataList.add(PostListDTO(4, "", "", "", " "))
             mainHomePostAdapter.items = postDataList
             binding.recycPost.adapter = mainHomePostAdapter
             //here: 데이터 추가 작업 필요!
         }
+
         recycPostAddScrollListener()
 
         return binding.root
@@ -141,30 +143,46 @@ class MainHomeFragment : Fragment() {
                 //scroll 끝에 도달했는지 확인
                 if(!binding.recycPost.canScrollVertically(1) && lastVisibleItemPosition == itemTotalCount) {
                     //DATA 받아오는 작업 IF 남은 데이터가 있을 시에만 LOADING 삭제, 남은 데이터가 없는 경우에는 마지막을 구분할 수 있게 TITLE에 " "가 아닌 다른 값을 삽입
-                    mainHomePostAdapter.deleteLoading()
+                    //mainHomePostAdapter.deleteLoading()
 
-                    postDataList.addAll(dummy1("$page"))
+                    if(!loading)
+                        getPostListData()
                     //데이터 추가 작업!
-                    mainHomePostAdapter.notifyItemInserted(page++ * POST_PER_PAGE)
                 }
             }
         })
     }
 
-    fun dummy1(sequence: String): ArrayList<PostData> {
-        val dummyList1 = ArrayList<PostData>()
-        dummyList1.apply {
-            add(PostData(sequence, "부산", "대면", "20.02.11 20:29", 4))
-            add(PostData(sequence, "부산", "대면", "20.02.11 20:29", 4))
-            add(PostData(sequence, "부산", "대면", "20.02.11 20:29", 4))
-            add(PostData(sequence, "부산", "대면", "20.02.11 20:29", 4))
-            add(PostData(sequence, "부산", "대면", "20.02.11 20:29", 4))
-            add(PostData(sequence, "부산", "대면", "20.02.11 20:29", 4))
-            add(PostData(sequence, "부산", "대면", "20.02.11 20:29", 4))
-            add(PostData(sequence, "부산", "대면", "20.02.11 20:29", 4))
-            add(PostData(sequence, "부산", "대면", "20.02.11 20:29", 4))
-            add(PostData(" ", "부산", "대면", "20.02.11 20:29", 4))
+
+
+    private fun getPostListData() {
+        loading = true
+        val api = APIS.create()
+        for(i in (page * POST_PER_PAGE - POST_PER_PAGE)..(page * POST_PER_PAGE)){
+            api.getPostList(i).enqueue(object : Callback<PostListDTO> {
+                override fun onResponse(call: Call<PostListDTO>, response: Response<PostListDTO>) {
+                    if(response.body() != null) {
+                        var tmpDTO = PostListDTO(
+                            response.body()!!.studyId,
+                            response.body()!!.postTime,
+                            response.body()!!.isUntact,
+                            response.body()!!.region,
+                            response.body()!!.title
+                        )
+                        itemAmount++
+                        postDataList.add(tmpDTO)
+                        mainHomePostAdapter.notifyItemInserted(itemAmount)
+                    }
+                }
+
+                override fun onFailure(call: Call<PostListDTO>, t: Throwable) {
+                    //Log.d("server failure", t.message.toString())
+                }
+            })
         }
-        return dummyList1
+        page++
+        loading = false
     }
+
+
 }

@@ -21,7 +21,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="4dp"
         android:fontFamily="@font/nanum_square_round_r"
-        android:text="설문 "
+        android:text="설문 제목"
         android:textSize="12sp"
         app:layout_constraintBottom_toBottomOf="@+id/tvSurveyEmoji"
         app:layout_constraintStart_toEndOf="@+id/tvSurveyEmoji"

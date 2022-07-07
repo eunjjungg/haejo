@@ -1,17 +1,20 @@
 package com.itstime.haejo.main.util
 
+import android.content.Intent
 import android.text.Layout
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.itstime.haejo.api.PostListDTO
 import com.itstime.haejo.databinding.CustomRecyclerLoadingBinding
 import com.itstime.haejo.databinding.CustomRecyclerPostListBinding
+import com.itstime.haejo.study.StudyInfoActivity
 import com.itstime.haejo.util.PostData
 
 class MainHomePostAdapter: RecyclerView.Adapter <RecyclerView.ViewHolder>() {
     private val VIEW_TYPE_ITEM = 0
     private val VIEW_TYPE_LOADING = 1
-    var items = ArrayList<PostData>()
+    var items = ArrayList<PostListDTO>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return when (viewType) {
@@ -45,12 +48,17 @@ class MainHomePostAdapter: RecyclerView.Adapter <RecyclerView.ViewHolder>() {
     }
 
     inner class PostViewHolder(private val binding: CustomRecyclerPostListBinding): RecyclerView.ViewHolder(binding.root) {
-        fun bind(item: PostData) {
+        fun bind(item: PostListDTO) {
             binding.tvTitle.setText(item.title)
-            binding.tvCommentAmount.setText(item.commentAmount.toString())
-            binding.tvTimeStamp.setText(item.timeStamp)
+            binding.tvTimeStamp.setText(item.postTime)
             binding.tvTagIsUntact.setText(item.isUntact)
             binding.tvTagRegion.setText(item.region)
+
+            itemView.setOnClickListener {
+                Intent(binding.root.context, StudyInfoActivity::class.java).apply {
+                    putExtra("studyId", item.studyId!!.toInt())
+                }.run {binding.root.context.startActivity(this)}
+            }
         }
     }
 
