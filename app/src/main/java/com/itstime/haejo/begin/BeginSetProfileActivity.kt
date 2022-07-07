@@ -7,9 +7,8 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import com.itstime.haejo.MainActivity
-import com.itstime.haejo.R
 import com.itstime.haejo.api.APIS
-import com.itstime.haejo.api.PostResult
+import com.itstime.haejo.api.PostUserResult
 import com.itstime.haejo.api.UploadUserModel
 import com.itstime.haejo.databinding.ActivityBeginSetProfileBinding
 import com.itstime.haejo.util.AppSetting
@@ -85,19 +84,20 @@ class BeginSetProfileActivity : AppCompatActivity() {
     }
 
     private fun uploadUserDataToServer() {
-        AppSetting.prefs.setNickname(binding.etName.toString())
+        AppSetting.prefs.setNickname(binding.etName.text.toString())
         val api = APIS.create()
         val uploadData = UploadUserModel(AppSetting.prefs.getEmail(), AppSetting.prefs.getName(), AppSetting.prefs.getNickname())
         val postUserData = api.postUser(uploadData)
-        postUserData.enqueue(object : Callback<PostResult> {
-            override fun onResponse(call: Call<PostResult>, response: Response<PostResult>) {
-                Log.d("retrofit server", response.toString())
+        postUserData.enqueue(object : Callback<PostUserResult> {
+            override fun onResponse(call: Call<PostUserResult>, response: Response<PostUserResult>) {
+                Log.d("bsf server success", response.body().toString())
+                AppSetting.prefs.setMemberId(response.body()!!.result!!.toInt())
                 startActivity(Intent(binding.root.context, MainActivity::class.java))
             }
 
-            override fun onFailure(call: Call<PostResult>, t: Throwable) {
+            override fun onFailure(call: Call<PostUserResult>, t: Throwable) {
                 Toast.makeText(binding.root.context, t.message.toString(), Toast.LENGTH_SHORT).show()
-                Log.d("retrofit server error", t.message.toString())
+                Log.d("bsf server error", t.message.toString())
             }
 
         })

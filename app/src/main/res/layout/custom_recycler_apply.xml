@@ -5,58 +5,69 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <TextView
-        android:id="@+id/emojiSurvey"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:text="📃"
-        android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/tvSurveyTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="7dp"
-        android:text="설문 제목"
-        android:fontFamily="@font/nanum_square_round_r"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="@+id/emojiSurvey"
-        app:layout_constraintStart_toEndOf="@+id/emojiSurvey"
-        app:layout_constraintTop_toTopOf="@+id/emojiSurvey" />
-
-    <View
-        android:id="@+id/view"
+    <!--설문 작성 부분-->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
         android:layout_width="match_parent"
-        android:layout_height="1dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:background="@color/black"
-        android:padding="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/emojiSurvey" />
+        app:layout_constraintTop_toTopOf="parent">
 
-    <EditText
-        android:id="@+id/etSurveyAnswer"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
-        android:background="@drawable/custom_et_gray"
-        android:gravity="top"
-        android:fontFamily="@font/nanum_square_round_r"
-        android:hint="답변을 입력해주세요 (최대 100자)"
-        android:lines="10"
-        android:padding="10dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/view" />
+        <!--첫 번째 설문-->
+        <TextView
+            android:id="@+id/emojiTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="📝"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="7dp"
+            android:fontFamily="@font/nanum_square_round_r"
+            android:text="25자 제한 첫 번째 질문 제목"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@+id/emojiTitle"
+            app:layout_constraintStart_toEndOf="@+id/emojiTitle"
+            app:layout_constraintTop_toTopOf="@+id/emojiTitle" />
+
+        <View
+            android:id="@+id/viewAnswer"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="8dp"
+            android:background="@color/black"
+            android:padding="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/emojiTitle" />
+
+        <EditText
+            android:id="@+id/etAnswer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/custom_et_gray"
+            android:fontFamily="@font/nanum_square_round_r"
+            android:gravity="top"
+            android:hint="답변은 60자 제한입니다."
+            android:lineSpacingMultiplier="1.35"
+            android:maxLength="60"
+            android:padding="10dp"
+            android:privateImeOptions="defaultInputmode=korean"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/viewAnswer" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -24,6 +24,7 @@ data class UploadUserModel(
     var nickname: String? = null,
 )
 
-data class PostResult(
+data class PostUserResult(
+    @SerializedName("id")
     var result: Long? = null
 )

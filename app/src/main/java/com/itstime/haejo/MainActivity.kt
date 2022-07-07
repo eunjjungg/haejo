@@ -39,7 +39,6 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
         when(p0?.id) {
             binding.btnHome.id -> {
-                Toast.makeText(this, AppSetting.prefs.getEmail(), Toast.LENGTH_SHORT).show()
                 transaction.replace(binding.fragmentView.id, MainHomeFragment())
                 transaction.commit()
                 setThisViewIcUnselected()
