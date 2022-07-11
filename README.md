@@ -2,6 +2,7 @@
 스터디를 자율적으로 찾고 스터디원을 평가할 수 있는 앱입니다. 
  
   
+   
 ### Team : Haejo
 + 김의진 : 기획
 + 박정운 : 백엔드
@@ -16,6 +17,9 @@
 ### 백엔드 사용 기술
 작성 예정
 
+ 
+## Figma
+https://www.figma.com/file/wQczTix9834WGEz2c5HcjT/itstime-figma?node-id=302%3A6
 
  
 ## 커밋 컨벤션
