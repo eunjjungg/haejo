@@ -107,7 +107,7 @@ class StudyMakeActivity : AppCompatActivity() {
             res.getStringArray(R.array.week)[binding.spinnerWeek.selectedItemPosition],
             res.getStringArray(R.array.isUntact)[binding.spinnerisUntact.selectedItemPosition],
             res.getStringArray(R.array.category)[binding.spinnerCategory.selectedItemPosition],
-            res.getStringArray(R.array.peopleAmount)[binding.spinnerPeopleAmount.selectedItemPosition][0] - '0',
+            (res.getStringArray(R.array.peopleAmount)[binding.spinnerPeopleAmount.selectedItemPosition][0] - '0').toInt(),
             binding.etSurveyContent.text.toString(),
             null,
             null,

@@ -83,17 +83,17 @@ class StudyMakeSurveyActivity : AppCompatActivity() {
     private fun storeQuestionsToRoomDB(questionList: List<String?>) {
         val db = AppDatabase.getInstance(applicationContext)
         CoroutineScope(Dispatchers.IO).launch {
-            val studyMakeDAO =
+            val studyMakeEntity =
                 db!!.studyMakeDao().getStudyMakeEntitiy(AppSetting.prefs.getMemberId().toLong())
             for(i in 0..questionList.size - 1) {
                 if(i == 0)
-                    studyMakeDAO.question0 = questionList[i]
+                    studyMakeEntity.question0 = questionList[i]
                 else if (i == 1)
-                    studyMakeDAO.question1 = questionList[i]
+                    studyMakeEntity.question1 = questionList[i]
                 else if (i == 2)
-                    studyMakeDAO.question2 = questionList[2]
+                    studyMakeEntity.question2 = questionList[2]
             }
-            db!!.studyMakeDao().updateStudyMakeEntity(studyMakeDAO)
+            db!!.studyMakeDao().updateStudyMakeEntity(studyMakeEntity)
         }
 
     }

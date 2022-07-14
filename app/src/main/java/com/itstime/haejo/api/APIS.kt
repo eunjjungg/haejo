@@ -20,6 +20,11 @@ interface APIS {
         @Body jsonParams: PostApplicationDTO
     ): Call<PostApplicationResultDTO>
 
+    @POST("api/study")
+    fun postStudy(
+        @Body jsonParams: PostContentUploadDTO
+    ): Call<PostStudyResultDTO>
+
     @GET("api/study/{id}")
     fun getPostList (
         @Path("id") id: Int
