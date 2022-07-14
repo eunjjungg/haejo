@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".study.StudyApply1Activity">
+    tools:context=".study.StudyMakeNotification">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -40,7 +40,7 @@
                 android:layout_marginTop="24dp"
                 android:autoSizeTextType="uniform"
                 android:fontFamily="@font/nanum_square_round_b"
-                android:text="📒 스터디 지원하기"
+                android:text="📒 스터디 만들기"
                 android:textSize="24sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/btnBack" />
@@ -53,7 +53,7 @@
                 android:layout_marginStart="4dp"
                 android:autoSizeTextType="uniform"
                 android:fontFamily="@font/nanum_square_round_r"
-                android:text="스터디 제목"
+                android:text="스터디 참여자들에게 스터디 참여 방식을 알려주세요"
                 android:textSize="16sp"
                 app:layout_constraintStart_toStartOf="@+id/tvTitle"
                 app:layout_constraintTop_toBottomOf="@+id/tvTitle" />
@@ -70,9 +70,8 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tvDetail">
 
-                <!--첫 번째 설문-->
                 <TextView
-                    android:id="@+id/emojiAnswer1"
+                    android:id="@+id/emojiSurveyTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
@@ -83,19 +82,19 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
-                    android:id="@+id/tvAnswer1"
+                    android:id="@+id/tvSurveyTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="7dp"
                     android:fontFamily="@font/nanum_square_round_r"
-                    android:text="25자 제한 첫 번째 질문 제목"
+                    android:text="공지를 작성해주세요 (ex. 오픈카톡방, 카톡 아이디)"
                     android:textSize="12sp"
-                    app:layout_constraintBottom_toBottomOf="@+id/emojiAnswer1"
-                    app:layout_constraintStart_toEndOf="@+id/emojiAnswer1"
-                    app:layout_constraintTop_toTopOf="@+id/emojiAnswer1" />
+                    app:layout_constraintBottom_toBottomOf="@+id/emojiSurveyTitle"
+                    app:layout_constraintStart_toEndOf="@+id/emojiSurveyTitle"
+                    app:layout_constraintTop_toTopOf="@+id/emojiSurveyTitle" />
 
                 <View
-                    android:id="@+id/viewAnswer1"
+                    android:id="@+id/viewTitle"
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
                     android:layout_marginStart="8dp"
@@ -105,31 +104,32 @@
                     android:padding="20dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/emojiAnswer1" />
+                    app:layout_constraintTop_toBottomOf="@+id/emojiSurveyTitle" />
 
                 <EditText
-                    android:id="@+id/etAnswer1"
+                    android:id="@+id/etNotification"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
+                    android:layout_marginStart="8dp"
                     android:layout_marginTop="16dp"
-                    android:layout_marginEnd="16dp"
-                    android:layout_marginBottom="16dp"
+                    android:layout_marginEnd="8dp"
                     android:background="@drawable/custom_et_gray"
                     android:fontFamily="@font/nanum_square_round_r"
-                    android:lineSpacingMultiplier="1.35"
-                    android:textSize="12sp"
-                    android:hint="답변은 60자 제한입니다."
-                    android:maxLength="25"
-                    android:padding="10dp"
                     android:gravity="top"
-                    android:privateImeOptions="defaultInputmode=korean"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/viewAnswer1" />
+                    android:inputType="textMultiLine"
+                    android:lineSpacingMultiplier="1.35"
+                    android:lines="15"
+                    android:maxLength="200"
+                    android:padding="10dp"
+                    android:textSize="12sp"
+                    app:layout_constraintEnd_toEndOf="@+id/viewTitle"
+                    app:layout_constraintStart_toStartOf="@+id/viewTitle"
+                    app:layout_constraintTop_toBottomOf="@+id/viewTitle" />
 
 
             </androidx.constraintlayout.widget.ConstraintLayout>
+
+
 
             <Button
                 android:id="@+id/btnNext"
@@ -138,7 +138,7 @@
                 android:layout_marginTop="32dp"
                 android:layout_marginEnd="16dp"
                 android:fontFamily="@font/nanum_square_round_r"
-                android:text="제출"
+                android:text="게시"
                 app:layout_constraintEnd_toEndOf="@+id/constraintLayout"
                 app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
 

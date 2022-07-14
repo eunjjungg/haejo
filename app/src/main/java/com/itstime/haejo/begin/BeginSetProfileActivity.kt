@@ -19,11 +19,11 @@ import retrofit2.Response
 class BeginSetProfileActivity : AppCompatActivity() {
     lateinit var binding : ActivityBeginSetProfileBinding
 
-    private val UNCHECK = 0
-    private val PROFILE1 = 1
-    private val PROFILE2 = 2
-    private val PROFILE3 = 3
-    private val PROFILE4 = 4
+    private val UNCHECK = -1
+    private val PROFILE1 = 0
+    private val PROFILE2 = 1
+    private val PROFILE3 = 2
+    private val PROFILE4 = 3
 
     private var userProfile: Int = UNCHECK
 
@@ -86,7 +86,7 @@ class BeginSetProfileActivity : AppCompatActivity() {
     private fun uploadUserDataToServer() {
         AppSetting.prefs.setNickname(binding.etName.text.toString())
         val api = APIS.create()
-        val uploadData = UploadUserModel(AppSetting.prefs.getEmail(), AppSetting.prefs.getName(), AppSetting.prefs.getNickname())
+        val uploadData = UploadUserModel(AppSetting.prefs.getEmail(), AppSetting.prefs.getName(), AppSetting.prefs.getNickname(), userProfile)
         val postUserData = api.postUser(uploadData)
         postUserData.enqueue(object : Callback<PostUserResult> {
             override fun onResponse(call: Call<PostUserResult>, response: Response<PostUserResult>) {

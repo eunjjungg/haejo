@@ -7,10 +7,14 @@ import android.util.Log
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.itstime.haejo.databinding.ActivityStudyMakeSurveyBinding
+import com.itstime.haejo.roomdb.AppDatabase
 import com.itstime.haejo.study.util.StudyInfoSurveyAdapter
 import com.itstime.haejo.study.util.StudyMakeSurveyAdapter
 import com.itstime.haejo.study.util.SurveyData
 import com.itstime.haejo.util.AppSetting
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 class StudyMakeSurveyActivity : AppCompatActivity() {
 
@@ -37,6 +41,7 @@ class StudyMakeSurveyActivity : AppCompatActivity() {
         binding.btnNext.setOnClickListener {
             getDataFromRecyc(intent.getIntExtra("questionAmount", 5))
         }
+
     }
 
     private fun setRecyclerSurvey(questionAmount: Int) {
@@ -55,23 +60,49 @@ class StudyMakeSurveyActivity : AppCompatActivity() {
 
         if(questionAmount > 0) {
             questionList.add(AppSetting.prefs.getTmpString0())
-            Log.d("txt", questionList[0].toString())
         }
         if(questionAmount > 1) {
             questionList.add(AppSetting.prefs.getTmpString1())
-            Log.d("txt", questionList[1].toString())
         }
         if(questionAmount > 2) {
             questionList.add(AppSetting.prefs.getTmpString2())
-            Log.d("txt", questionList[2].toString())
         }
 
         // 빈 값을 입력한 경우
-        for(i in questionList)
-            if(i == null || i == "") {
+        for(i in 0..questionList.size - 1)
+            if(questionList[i] == null || questionList[i] == "") {
                 Toast.makeText(this, "질문을 작성해 주십시오", Toast.LENGTH_SHORT).show()
                 break
+            } else if(i == questionList.size - 1) {
+                storeQuestionsToRoomDB(questionList)
+                startActivity(Intent(this, StudyMakeNotification::class.java))
             }
 
+    }
+
+    private fun storeQuestionsToRoomDB(questionList: List<String?>) {
+        val db = AppDatabase.getInstance(applicationContext)
+        CoroutineScope(Dispatchers.IO).launch {
+            val studyMakeEntity =
+                db!!.studyMakeDao().getStudyMakeEntitiy(AppSetting.prefs.getMemberId().toLong())
+            for(i in 0..questionList.size - 1) {
+                if(i == 0)
+                    studyMakeEntity.question0 = questionList[i]
+                else if (i == 1)
+                    studyMakeEntity.question1 = questionList[i]
+                else if (i == 2)
+                    studyMakeEntity.question2 = questionList[2]
+            }
+            db!!.studyMakeDao().updateStudyMakeEntity(studyMakeEntity)
+        }
+
+    }
+
+    private fun getDataFromRoomDB() {
+        val db = AppDatabase.getInstance(applicationContext)
+        CoroutineScope(Dispatchers.IO).launch {
+            val studyMakeDAO = db!!.studyMakeDao().getStudyMakeEntitiy(AppSetting.prefs.getMemberId().toLong())
+            Log.d("room", studyMakeDAO.toString())
+        }
     }
 }
