@@ -31,7 +31,7 @@ class MainHomeFragment : Fragment() {
     //current page
     private var itemAmount = 0
     private var loading = false
-    private var page = 1
+    private var page = 2
     private var POST_PER_PAGE = 10
     private lateinit var mainHomePostAdapter: MainHomePostAdapter
     private var postDataList = ArrayList<PostListDTO>()

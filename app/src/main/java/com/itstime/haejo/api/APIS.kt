@@ -15,9 +15,10 @@ interface APIS {
         @Body jsonParams: UploadUserModel
     ): Call<PostUserResult>
 
-    @GET("api/member/1")
-    fun getUserTest(
-    ): Call<UserModel>
+    @POST("api/studyMember")
+    fun postApplication(
+        @Body jsonParams: PostApplicationDTO
+    ): Call<PostApplicationResultDTO>
 
     @GET("api/study/{id}")
     fun getPostList (
@@ -30,7 +31,7 @@ interface APIS {
     ): Call<PostContentDTO>
 
     companion object {
-        private const val BASE_URL = "http://15.165.230.222:8080/"
+        private const val BASE_URL = "http://15.165.133.114:8080/"
 
         fun create(): APIS {
             val gson: Gson = GsonBuilder().setLenient().create()

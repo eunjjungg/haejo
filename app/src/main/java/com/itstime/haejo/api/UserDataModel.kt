@@ -22,6 +22,8 @@ data class UploadUserModel(
     var name: String? = null,
     @SerializedName("nickname")
     var nickname: String? = null,
+    @SerializedName("profile")
+    var profile: Int? = null
 )
 
 data class PostUserResult(

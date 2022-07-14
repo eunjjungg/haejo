@@ -15,7 +15,7 @@
             android:name=".study.StudyApplyActivity"
             android:exported="false" />
         <activity
-            android:name=".begin.LoadingActivity"
+            android:name=".MainActivity"
             android:exported="false" />
         <activity
             android:name=".study.StudyMakeSurveyActivity"
@@ -36,9 +36,6 @@
             android:name=".begin.BeginSetProfileActivity"
             android:exported="false" />
         <activity
-            android:name=".study.StudyApply3Activity"
-            android:exported="false" />
-        <activity
             android:name=".mypage.MypageStudyActivity"
             android:exported="false" />
         <activity
@@ -51,13 +48,7 @@
             android:name=".BeginActivity"
             android:exported="false" />
         <activity
-            android:name=".study.StudyApply1Activity"
-            android:exported="false" />
-        <activity
-            android:name=".study.StudyApply2Activity"
-            android:exported="false" />
-        <activity
-            android:name=".MainActivity"
+            android:name=".begin.LoadingActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

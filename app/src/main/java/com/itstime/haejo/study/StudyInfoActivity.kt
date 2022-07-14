@@ -26,6 +26,7 @@ class StudyInfoActivity : AppCompatActivity() {
     //recyclerView Survey 용
     private val surveyDataList: MutableList<SurveyData> = mutableListOf()
     lateinit var surveyAdapter: StudyInfoSurveyAdapter
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityStudyInfoBinding.inflate(layoutInflater)
@@ -41,6 +42,7 @@ class StudyInfoActivity : AppCompatActivity() {
 
         binding.btnNext.setOnClickListener {
             Intent(this, StudyApplyActivity::class.java).apply {
+                putExtra("studyId", intent.getIntExtra("studyId", 0))
                 putExtra("questionAmount", questionAmount)
                 startActivity(this)
             }
@@ -48,7 +50,7 @@ class StudyInfoActivity : AppCompatActivity() {
 
     }
 
-    //db에서 받아오는 값으로 data 수정 필요
+    //recyclerView 어댑터만 연결
     private fun setRecyclerSurvey() {
         surveyAdapter = StudyInfoSurveyAdapter()
 
@@ -58,6 +60,7 @@ class StudyInfoActivity : AppCompatActivity() {
         binding.recycSurvey.layoutManager = LinearLayoutManager(this)
     }
 
+    //db에서 받아온 값으로 recyclerView adapter에 값 넣기
     private fun getData(studyId: Int) {
         val api = APIS.create()
         api.getPostContent(studyId).enqueue(object : Callback<PostContentDTO> {

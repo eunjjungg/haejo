@@ -47,19 +47,3 @@ data class questionDTO(
     var question: String? = null
 )
 
-data class qnaDTO(
-    @SerializedName("memberId")
-    var memberId: Long? = null,
-    @SerializedName("studyId")
-    var studyId: Long? = null,
-    var answer: List<answerDTO>
-)
-
-data class answerDTO(
-    @SerializedName("sequence")
-    var sequence: Int? = null,
-    @SerializedName("question")
-    var question: String? = null,
-    @SerializedName("answer")
-    var answer: String? = null
-)
