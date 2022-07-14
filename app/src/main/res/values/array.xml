@@ -61,8 +61,6 @@
         <item>4인 이하</item>
         <item>6인 이하</item>
         <item>8인 이하</item>
-        <item>10인 이하</item>
-        <item>대규모</item>
     </string-array>
 
     <string-array name="participationStatus">

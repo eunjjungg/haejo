@@ -1,6 +1,7 @@
 package com.itstime.haejo.study
 
 import android.content.Intent
+import android.content.res.Resources
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -8,17 +9,27 @@ import android.view.KeyEvent
 import android.view.inputmethod.EditorInfo
 import android.widget.EditText
 import android.widget.Toast
+import com.itstime.haejo.R
 import com.itstime.haejo.databinding.ActivityStudyMakeBinding
+import com.itstime.haejo.roomdb.AppDatabase
+import com.itstime.haejo.roomdb.StudyMakeEntity
 import com.itstime.haejo.study.util.StudyMakeAdapter
+import com.itstime.haejo.util.AppSetting
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 class StudyMakeActivity : AppCompatActivity() {
 
     lateinit var binding : ActivityStudyMakeBinding
+    lateinit var res: Resources
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityStudyMakeBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        res = resources
 
         StudyMakeAdapter(binding).spinnerAdapterConnect()
         StudyMakeAdapter(binding).spinnerSelection()
@@ -27,6 +38,8 @@ class StudyMakeActivity : AppCompatActivity() {
         binding.btnBack.setOnClickListener {
             onBackPressed()
         }
+
+
 
         //모두 작성하고 완료 버튼
         binding.btnNext.setOnClickListener {
@@ -85,9 +98,26 @@ class StudyMakeActivity : AppCompatActivity() {
             return true
     }
 
-    //각 데이터들 저장
+    //각 데이터들 저장 to RoomDB
     private fun storeData() {
-
+        var studyMakeEntity = StudyMakeEntity(
+            AppSetting.prefs.getMemberId().toLong(),
+            binding.etSurveyTitle.text.toString(),
+            res.getStringArray(R.array.region)[binding.spinnerRegion.selectedItemPosition],
+            res.getStringArray(R.array.week)[binding.spinnerWeek.selectedItemPosition],
+            res.getStringArray(R.array.isUntact)[binding.spinnerisUntact.selectedItemPosition],
+            res.getStringArray(R.array.category)[binding.spinnerCategory.selectedItemPosition],
+            res.getStringArray(R.array.peopleAmount)[binding.spinnerPeopleAmount.selectedItemPosition][0] - '0',
+            binding.etSurveyContent.text.toString(),
+            null,
+            null,
+            null,
+            null
+            )
+        val db = AppDatabase.getInstance(applicationContext)
+        CoroutineScope(Dispatchers.IO).launch {
+            db!!.studyMakeDao().insert(studyMakeEntity)
+        }
     }
 
     //각각의 questionAmount에 따라 surveypage로 이동

@@ -88,10 +88,7 @@ class StudyInfoActivity : AppCompatActivity() {
         binding.tvTagSector.setText("#${content.category}")
 
         //person Limit Tag
-        if(content.personLimit == 20)
-            binding.tvPeopleAmount.setText("#대규모")
-        else
-            binding.tvPeopleAmount.setText("#${content.personLimit}인 이하")
+        binding.tvPeopleAmount.setText("#${content.personLimit}인 이하")
 
         //status Tag
         if(content.status == "recruit")
