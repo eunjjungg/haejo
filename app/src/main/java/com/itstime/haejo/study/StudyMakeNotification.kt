@@ -1,9 +1,11 @@
 package com.itstime.haejo.study
 
-import androidx.appcompat.app.AppCompatActivity
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import com.itstime.haejo.MainActivity
 import com.itstime.haejo.api.APIS
 import com.itstime.haejo.api.PostContentUploadDTO
 import com.itstime.haejo.api.PostStudyResultDTO
@@ -12,6 +14,7 @@ import com.itstime.haejo.databinding.ActivityStudyMakeNotificationBinding
 import com.itstime.haejo.roomdb.AppDatabase
 import com.itstime.haejo.roomdb.StudyMakeEntity
 import com.itstime.haejo.util.AppSetting
+import com.itstime.haejo.util.UtilFunctions
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -93,7 +96,8 @@ class StudyMakeNotification : AppCompatActivity() {
                 response: Response<PostStudyResultDTO>
             ) {
                 Log.d("smn server success", response.toString())
-                finish()
+                Toast.makeText(binding.root.context, "스터디가 생성 완료", Toast.LENGTH_SHORT).show()
+                UtilFunctions().clearStackAndGoMain(binding.root.context)
             }
 
             override fun onFailure(call: Call<PostStudyResultDTO>, t: Throwable) {

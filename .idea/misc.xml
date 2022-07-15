@@ -17,6 +17,7 @@
         <entry key="..\:/Users/ej/haejo/app/src/main/res/drawable/ic_application.xml" value="0.175" />
         <entry key="..\:/Users/ej/haejo/app/src/main/res/drawable/ic_application_selected.xml" value="0.175" />
         <entry key="..\:/Users/ej/haejo/app/src/main/res/drawable/ic_back.xml" value="0.1" />
+        <entry key="..\:/Users/ej/haejo/app/src/main/res/drawable/ic_baseline_feed_24.xml" value="0.188" />
         <entry key="..\:/Users/ej/haejo/app/src/main/res/drawable/ic_bookmark_selected.xml" value="0.237" />
         <entry key="..\:/Users/ej/haejo/app/src/main/res/drawable/ic_bookmark_unselected.xml" value="0.237" />
         <entry key="..\:/Users/ej/haejo/app/src/main/res/drawable/ic_chat.xml" value="0.175" />
@@ -27,7 +28,10 @@
         <entry key="..\:/Users/ej/haejo/app/src/main/res/drawable/ic_mypage_selected.xml" value="0.247" />
         <entry key="..\:/Users/ej/haejo/app/src/main/res/drawable/ic_next.xml" value="0.1" />
         <entry key="..\:/Users/ej/haejo/app/src/main/res/drawable/ic_notification.xml" value="0.244" />
+        <entry key="..\:/Users/ej/haejo/app/src/main/res/drawable/ic_ongoing_selected.xml" value="0.188" />
         <entry key="..\:/Users/ej/haejo/app/src/main/res/drawable/ic_write.xml" value="0.237" />
+        <entry key="..\:/Users/ej/haejo/app/src/main/res/drawable/ic_write_selected.xml" value="0.188" />
+        <entry key="..\:/Users/ej/haejo/app/src/main/res/drawable/ic_write_unselected.xml" value="0.188" />
         <entry key="..\:/Users/ej/haejo/app/src/main/res/drawable/spinner_unselected.xml" value="0.237" />
         <entry key="..\:/Users/ej/haejo/app/src/main/res/layout/activity_begin.xml" value="0.264" />
         <entry key="..\:/Users/ej/haejo/app/src/main/res/layout/activity_begin_set_profile.xml" value="0.32659795098837435" />
