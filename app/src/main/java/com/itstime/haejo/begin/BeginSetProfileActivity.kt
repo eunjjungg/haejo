@@ -12,6 +12,7 @@ import com.itstime.haejo.api.PostUserResult
 import com.itstime.haejo.api.UploadUserModel
 import com.itstime.haejo.databinding.ActivityBeginSetProfileBinding
 import com.itstime.haejo.util.AppSetting
+import com.itstime.haejo.util.UtilFunctions
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -92,7 +93,7 @@ class BeginSetProfileActivity : AppCompatActivity() {
             override fun onResponse(call: Call<PostUserResult>, response: Response<PostUserResult>) {
                 Log.d("bsf server success", response.body().toString())
                 AppSetting.prefs.setMemberId(response.body()!!.result!!.toInt())
-                startActivity(Intent(binding.root.context, MainActivity::class.java))
+                UtilFunctions().clearStackAndGoMain(binding.root.context)
             }
 
             override fun onFailure(call: Call<PostUserResult>, t: Throwable) {
@@ -102,4 +103,5 @@ class BeginSetProfileActivity : AppCompatActivity() {
 
         })
     }
+
 }
