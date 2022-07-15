@@ -16,7 +16,7 @@
 Spring, Java, Mysql, EC2 RDS
 
 ### 협업 사용 기술
-Notion, Figma, Discord, Slack, Github<br/>
+Notion, Figma, Discord, Slack, Github<br/><br/>
 
 ## Figma
 https://www.figma.com/file/wQczTix9834WGEz2c5HcjT/itstime-figma?node-id=302%3A6
