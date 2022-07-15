@@ -1,5 +1,5 @@
 # USTUDY 프로젝트
-스터디를 자율적으로 찾고 스터디원을 평가할 수 있는 앱입니다. 
+본 앱은 다양한 분야의 스터디 및 취미 모임을 제공하고 있으며 대면 여부, 지역, 시간을 넘어 언제 어디서든 편하게 참여할 수 있는 스터디 진행하도록 장려하는 서비스입니다. 
 <br/><br/>
 ### Team : Haejo
 + 김의진 : 기획
@@ -13,9 +13,11 @@
 4. Retrofit2
 
 ### 백엔드 사용 기술
-작성 예정
+Spring, Java, Mysql, EC2 RDS
 
- 
+### 협업 사용 기술
+Notion, Figma, Discord, Slack, Github<br/>
+
 ## Figma
 https://www.figma.com/file/wQczTix9834WGEz2c5HcjT/itstime-figma?node-id=302%3A6
 
