@@ -81,6 +81,17 @@
                     app:layout_constraintStart_toEndOf="@+id/imgWriterProfileImage"
                     app:layout_constraintTop_toTopOf="parent" />
 
+                <ImageView
+                    android:id="@+id/imgBattery"
+                    android:layout_width="50dp"
+                    android:layout_height="0dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginBottom="12dp"
+                    android:src="@drawable/ic_battery_40"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/tvWriterNickname"
+                    app:layout_constraintTop_toTopOf="parent" />
+
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <!--스터디 태그-->

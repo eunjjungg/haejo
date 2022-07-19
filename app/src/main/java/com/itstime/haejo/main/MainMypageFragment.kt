@@ -1,60 +1,112 @@
 package com.itstime.haejo.main
 
+import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.itstime.haejo.R
+import com.itstime.haejo.api.APIS
+import com.itstime.haejo.api.UserGetDTO
+import com.itstime.haejo.databinding.FragmentMainMypageBinding
+import com.itstime.haejo.mypage.MypageBookmarkActivity
+import com.itstime.haejo.mypage.MypageCommentActivity
+import com.itstime.haejo.mypage.MypageSetting
+import com.itstime.haejo.mypage.MypageStudyActivity
+import com.itstime.haejo.util.AppSetting
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [MainMypageFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class MainMypageFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+    lateinit var binding : FragmentMainMypageBinding
+    lateinit var userGetDTO: UserGetDTO
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_main_mypage, container, false)
+        binding = FragmentMainMypageBinding.inflate(inflater, container, false)
+
+        getUserProfile(AppSetting.prefs.getMemberId().toLong())
+        setEachTVtoPage()
+
+
+        return binding.root
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment MainMypageFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            MainMypageFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
+    //mypage 연결 시 맨 처음으로 실행되는 부분 : 유저 프로필 초기화
+    private fun getUserProfile(userId: Long) {
+        var isSuccess: Boolean = false
+        val api = APIS.create()
+        api.getUser(userId).enqueue(object : Callback<UserGetDTO> {
+            override fun onResponse(call: Call<UserGetDTO>, response: Response<UserGetDTO>) {
+                Log.d("MMF server succ", response.toString())
+                isSuccess = true
+                userGetDTO = UserGetDTO(
+                    response.body()!!.memberId,
+                    response.body()!!.battery,
+                    response.body()!!.email,
+                    response.body()!!.name,
+                    response.body()!!.nickname,
+                    response.body()!!.profile
+                )
+                initUserProfile(userGetDTO)
             }
+
+            override fun onFailure(call: Call<UserGetDTO>, t: Throwable) {
+                Log.d("MMF server fail", t.message.toString())
+            }
+
+        })
     }
+
+    private fun initUserProfile(userGetDTO: UserGetDTO) {
+        Log.d("MMF server succ", "issuccess에 들어온 경우")
+        when(userGetDTO.profile) {
+            0 -> binding.imgProfile.setImageDrawable(resources.getDrawable(R.drawable.ic_profile_0))
+            1 -> binding.imgProfile.setImageDrawable(resources.getDrawable(R.drawable.ic_profile_1))
+            2 -> binding.imgProfile.setImageDrawable(resources.getDrawable(R.drawable.ic_profile_2))
+            3 -> binding.imgProfile.setImageDrawable(resources.getDrawable(R.drawable.ic_profile_3))
+        }
+        binding.tvBattery.setText("${userGetDTO.nickname} 님의 열정 배터리는 ${userGetDTO.battery} % 입니다")
+
+        when(userGetDTO.battery) {
+            in 0..20 -> binding.imgBattery.setImageDrawable(resources.getDrawable(R.drawable.ic_battery_20))
+            in 21..40 -> binding.imgBattery.setImageDrawable(resources.getDrawable(R.drawable.ic_battery_40))
+            in 41..70 -> binding.imgBattery.setImageDrawable(resources.getDrawable(R.drawable.ic_battery_70))
+            in 71..100 -> binding.imgBattery.setImageDrawable(resources.getDrawable(R.drawable.ic_battery_90))
+        }
+    }
+
+    //각 tv click 시 페이지 넘어가도록 구현
+    private fun setEachTVtoPage() {
+        var intent: Intent
+
+        binding.tvBookmark.setOnClickListener {
+            intent = Intent(binding.root.context, MypageBookmarkActivity::class.java)
+            startActivity(intent)
+        }
+
+        binding.tvComment.setOnClickListener {
+            intent = Intent(binding.root.context, MypageCommentActivity::class.java)
+            startActivity(intent)
+        }
+
+        binding.tvStudy.setOnClickListener {
+            intent = Intent(binding.root.context, MypageStudyActivity::class.java)
+            startActivity(intent)
+        }
+
+        binding.tvCredit.setOnClickListener {
+            intent = Intent(binding.root.context, MypageSetting::class.java)
+            startActivity(intent)
+        }
+    }
+
 }
