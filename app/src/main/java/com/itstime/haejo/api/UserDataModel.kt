@@ -2,7 +2,7 @@ package com.itstime.haejo.api
 
 import com.google.gson.annotations.SerializedName
 
-data class UserModel(
+data class UserGetDTO(
     @SerializedName("id")
     var memberId: Long? = null,
     @SerializedName("battery")
@@ -12,7 +12,9 @@ data class UserModel(
     @SerializedName("name")
     var name: String? = null,
     @SerializedName("nickname")
-    var nickname: String? = null
+    var nickname: String? = null,
+    @SerializedName("profile")
+    var profile: Int? = null
 )
 
 data class UploadUserModel(

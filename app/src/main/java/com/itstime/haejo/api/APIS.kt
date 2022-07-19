@@ -15,6 +15,11 @@ interface APIS {
         @Body jsonParams: UploadUserModel
     ): Call<PostUserResult>
 
+    @GET("api/member/{id}")
+    fun getUser(
+        @Path("id") id: Long
+    ): Call<UserGetDTO>
+
     @POST("api/studyMember")
     fun postApplication(
         @Body jsonParams: PostApplicationDTO
