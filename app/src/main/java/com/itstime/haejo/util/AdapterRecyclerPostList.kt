@@ -1,40 +1,88 @@
 package com.itstime.haejo.util
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.itstime.haejo.api.PostListDTO
+import com.itstime.haejo.databinding.CustomRecyclerEmptyBinding
+import com.itstime.haejo.databinding.CustomRecyclerLoadingBinding
 import com.itstime.haejo.databinding.CustomRecyclerPostListBinding
+import com.itstime.haejo.main.util.MainHomePostAdapter
+import com.itstime.haejo.study.StudyInfoActivity
+import com.itstime.haejo.util.AdapterRecyclerPostList.*
 
 class AdapterRecyclerPostList()
-    : RecyclerView.Adapter<AdapterRecyclerPostList.ViewHolder>(){
-
-    var listData = mutableListOf<PostData>()
+    : RecyclerView.Adapter<RecyclerView.ViewHolder>(){
+    private val VIEW_TYPE_ITEM = 0
+    private val VIEW_TYPE_LOADING = 1
+    private val VIEW_TYPE_CANCEL = 2
+    var listData = mutableListOf<PostListDTO>()
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
-    ): AdapterRecyclerPostList.ViewHolder {
-        val binding = CustomRecyclerPostListBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return ViewHolder(binding)
+    ): RecyclerView.ViewHolder {
+
+        return when (viewType) {
+            VIEW_TYPE_CANCEL -> {
+                val layoutInflater = LayoutInflater.from(parent.context)
+                val binding = CustomRecyclerEmptyBinding.inflate(layoutInflater, parent, false)
+                CancleViewHolder(binding)
+            }
+            VIEW_TYPE_ITEM -> {
+                val layoutInflater = LayoutInflater.from(parent.context)
+                val binding = CustomRecyclerPostListBinding.inflate(layoutInflater, parent, false)
+                PostViewHolder(binding)
+            }
+            //VIEW_TYPE_LOADING
+            else -> {
+                val layoutInflater = LayoutInflater.from(parent.context)
+                val binding = CustomRecyclerLoadingBinding.inflate(layoutInflater, parent, false)
+                LoadingViewHolder(binding)
+            }
+
+        }
     }
 
-    override fun onBindViewHolder(holder: AdapterRecyclerPostList.ViewHolder, position: Int) {
-        val data = listData[position]
-        holder.bind(data)
+    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
+        if(holder is PostViewHolder)
+            holder.bind(listData[position])
     }
 
     override fun getItemCount(): Int {
         return listData.size
     }
 
-    inner class ViewHolder(val binding: CustomRecyclerPostListBinding)
-        : RecyclerView.ViewHolder(binding.root) {
-            fun bind(data: PostData) {
-                binding.tvTitle.setText("${data.title}")
-                binding.tvTagRegion.setText("#${data.region}")
-                binding.tvTagIsUntact.setText("#${data.isUntact}")
-                binding.tvTimeStamp.setText("${data.timeStamp}")
-                binding.tvCommentAmount.setText("${data.commentAmount.toString()}")
+    override fun getItemViewType(position: Int): Int {
+        return when(listData[position].title) {
+            " " -> VIEW_TYPE_LOADING
+            ";" -> VIEW_TYPE_CANCEL
+            else -> VIEW_TYPE_ITEM
+        }
+    }
+
+
+    inner class PostViewHolder(private val binding: CustomRecyclerPostListBinding): RecyclerView.ViewHolder(binding.root) {
+        fun bind(item: PostListDTO) {
+            binding.tvTitle.setText(item.title)
+            binding.tvTimeStamp.setText(item.postTime)
+            binding.tvTagIsUntact.setText(item.isUntact)
+            binding.tvTagRegion.setText(item.region)
+
+            itemView.setOnClickListener {
+                Intent(binding.root.context, StudyInfoActivity::class.java).apply {
+                    putExtra("studyId", item.studyId!!.toInt())
+                }.run {binding.root.context.startActivity(this)}
             }
         }
+    }
+
+    inner class LoadingViewHolder(private val binding: CustomRecyclerLoadingBinding): RecyclerView.ViewHolder(binding.root) {
+
+    }
+
+    inner class CancleViewHolder(private val binding: CustomRecyclerEmptyBinding): RecyclerView.ViewHolder(binding.root) {
+
+    }
 }

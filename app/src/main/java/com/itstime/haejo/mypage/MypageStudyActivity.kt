@@ -10,6 +10,7 @@ import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.itstime.haejo.R
+import com.itstime.haejo.api.PostListDTO
 import com.itstime.haejo.databinding.ActivityMypageStudyBinding
 import com.itstime.haejo.util.AdapterRecyclerPostList
 import com.itstime.haejo.util.PostData
@@ -20,7 +21,7 @@ class MypageStudyActivity : AppCompatActivity() {
     lateinit var binding : ActivityMypageStudyBinding
 
     //recyclerView Post List 용
-    private val postDataList: MutableList<PostData> = mutableListOf()
+    private val postDataList: MutableList<PostListDTO> = mutableListOf()
 
     //recyclerView 갱신을 위한 함수
     private val allPosts: Int = 0
@@ -50,10 +51,7 @@ class MypageStudyActivity : AppCompatActivity() {
         //아래 apply 부분이 db에서 받아오는 값으로 수정해야 되는 부분
         postDataList.apply {
             //dummy data
-            add(
-                PostData("이것은 첫 번째 제목입니다.", "지역 무관",
-                "비대면", "11/13 12:24", 4)
-            )
+            add(PostListDTO(title = ";"))
         }
 
         postAdapter.listData = postDataList
@@ -114,32 +112,16 @@ class MypageStudyActivity : AppCompatActivity() {
         postDataList.clear()
         when(type) {
             allPosts -> {
-                //postDataList에 post 맞게 추가 아래는 dummy Data, 아래 쭉 삭제
-                postDataList.add(
-                    PostData("이것은 첫 번째 제목입니다.", "지역 무관",
-                        "비대면", "11/13 12:24", 4)
-                )
-                postDataList.add(
-                    PostData("이것은 첫 번째 제목입니다.", "지역 무관",
-                        "비대면", "11/13 12:24", 4)
-                )
-            }
-            participatingOnPosts -> {
-                //postDataList에 post 맞게 추가 아래는 dummy Data, 아래 쭉 삭제
-                makeDummyData()
-                postDataList.add(
-                    PostData("This is second title.", "지역 무관",
-                        "비대면", "11/13 12:24", 4)
-                )
+                postDataList.apply {
+                    //dummy data
+                    add(PostListDTO(title = ";"))
+                }
             }
             participatingEndPosts -> {
-                //postDataList에 post 맞게 추가 아래는 dummy Data, 아래 쭉 삭제
-                postDataList.add(
-                    PostData("세 번째 셀렉션입니다.", "지역 무관",
-                        "비대면", "11/13 12:24", 4)
-                )
-                makeDummyData()
-                makeDummyData()
+                postDataList.apply {
+                    //dummy data
+                    add(PostListDTO(title = ";"))
+                }
             }
         }
         postAdapter.notifyDataSetChanged()
@@ -149,26 +131,10 @@ class MypageStudyActivity : AppCompatActivity() {
     private fun makeDummyData() {
         postDataList.apply {
             //dummy data
-            add(
-                PostData("이것은 첫 번째 제목입니다.", "지역 무관",
-                    "비대면", "11/13 12:24", 4)
-            )
-            add(
-                PostData("이것은 두 번째 제목입니다.", "경북",
-                    "대면", "11/13 12:24", 12)
-            )
-            add(
-                PostData("이것은 세 번째 제목입니다.", "인천",
-                    "비대면", "11/13 12:24", 123)
-            )
-            add(
-                PostData("이것은 네 번째 제목입니다.", "전북",
-                    "대면", "11/13 12:24", 0)
-            )
-            add(
-                PostData("이것은 다섯 번째 제목입니다.", "제주",
-                    "비대면", "11/13 12:24", 1)
-            )
+            postDataList.apply {
+                //dummy data
+                add(PostListDTO(title = ";"))
+            }
         }
     }
 }

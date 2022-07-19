@@ -16,7 +16,9 @@ class MainHomePostAdapter: RecyclerView.Adapter <RecyclerView.ViewHolder>() {
     private val VIEW_TYPE_LOADING = 1
     var items = ArrayList<PostListDTO>()
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
+    override fun onCreateViewHolder(
+        parent: ViewGroup,
+        viewType: Int): RecyclerView.ViewHolder {
         return when (viewType) {
             VIEW_TYPE_ITEM -> {
                 val layoutInflater = LayoutInflater.from(parent.context)

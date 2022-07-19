@@ -30,6 +30,11 @@ interface APIS {
         @Body jsonParams: PostContentUploadDTO
     ): Call<PostStudyResultDTO>
 
+    @GET("api/studyMember/study/{id}")
+    fun getOnGoingPostList(
+        @Path("id") id: Long
+    ): Call<PostListArrayDTO>
+
     @GET("api/study/{id}")
     fun getPostList (
         @Path("id") id: Int
