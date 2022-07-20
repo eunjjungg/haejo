@@ -76,29 +76,29 @@
         app:layout_constraintTop_toBottomOf="@+id/view" />
 
     <!--댓글 개수-->
-    <TextView
-        android:id="@+id/tvEmojiCommentAmount"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="4dp"
-        android:fontFamily="@font/nanum_square_round_r"
-        android:textSize="12sp"
-        android:text=" 💬 "
-        app:layout_constraintBottom_toBottomOf="@+id/tvTimeStamp"
-        app:layout_constraintEnd_toStartOf="@+id/tvCommentAmount"
-        app:layout_constraintTop_toTopOf="@+id/tvTimeStamp"
-        app:layout_constraintVertical_bias="0.0" />
+<!--    <TextView-->
+<!--        android:id="@+id/tvEmojiCommentAmount"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginEnd="4dp"-->
+<!--        android:fontFamily="@font/nanum_square_round_r"-->
+<!--        android:textSize="12sp"-->
+<!--        android:text=" 💬 "-->
+<!--        app:layout_constraintBottom_toBottomOf="@+id/tvTimeStamp"-->
+<!--        app:layout_constraintEnd_toStartOf="@+id/tvCommentAmount"-->
+<!--        app:layout_constraintTop_toTopOf="@+id/tvTimeStamp"-->
+<!--        app:layout_constraintVertical_bias="0.0" />-->
 
-    <TextView
-        android:id="@+id/tvCommentAmount"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:fontFamily="@font/nanum_square_round_r"
-        android:textSize="12sp"
-        android:text="4"
-        app:layout_constraintBottom_toBottomOf="@+id/tvTimeStamp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/tvTimeStamp" />
+<!--    <TextView-->
+<!--        android:id="@+id/tvCommentAmount"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginEnd="8dp"-->
+<!--        android:fontFamily="@font/nanum_square_round_r"-->
+<!--        android:textSize="12sp"-->
+<!--        android:text="4"-->
+<!--        app:layout_constraintBottom_toBottomOf="@+id/tvTimeStamp"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="@+id/tvTimeStamp" />-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>
