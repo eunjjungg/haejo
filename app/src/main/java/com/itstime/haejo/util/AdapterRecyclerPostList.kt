@@ -66,7 +66,7 @@ class AdapterRecyclerPostList()
     inner class PostViewHolder(private val binding: CustomRecyclerPostListBinding): RecyclerView.ViewHolder(binding.root) {
         fun bind(item: PostListDTO) {
             binding.tvTitle.setText(item.title)
-            binding.tvTimeStamp.setText(item.postTime)
+            binding.tvTimeStamp.setText(item.postTime!!.replace("T", " "))
             binding.tvTagIsUntact.setText(item.isUntact)
             binding.tvTagRegion.setText(item.region)
 
