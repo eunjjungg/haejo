@@ -58,13 +58,11 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/btnBack">
 
-                <de.hdodenhof.circleimageview.CircleImageView
+                <ImageView
                     android:id="@+id/imgWriterProfileImage"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:background="#00000000"
-                    android:src="@drawable/img_logo_purple"
-                    app:civ_border_width=".8dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -75,7 +73,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
                     android:fontFamily="@font/nanum_square_round_r"
-                    android:text="작성자 nickname"
+                    android:text="      "
                     android:textSize="16sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/imgWriterProfileImage"
@@ -91,6 +89,17 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/tvWriterNickname"
                     app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tvBattery"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/nanum_square_round_r"
+                    android:text="  %"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/tvWriterNickname"
+                    app:layout_constraintStart_toEndOf="@+id/imgBattery"
+                    app:layout_constraintTop_toTopOf="@+id/tvWriterNickname" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

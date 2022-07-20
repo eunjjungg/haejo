@@ -4,11 +4,10 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.itstime.haejo.R
-import com.itstime.haejo.api.APIS
-import com.itstime.haejo.api.PostContentDTO
-import com.itstime.haejo.api.PostListDTO
+import com.itstime.haejo.api.*
 import com.itstime.haejo.databinding.ActivityStudyInfoBinding
 import com.itstime.haejo.study.util.StudyInfoSurveyAdapter
 import com.itstime.haejo.study.util.SurveyData
@@ -27,6 +26,9 @@ class StudyInfoActivity : AppCompatActivity() {
     private val surveyDataList: MutableList<SurveyData> = mutableListOf()
     lateinit var surveyAdapter: StudyInfoSurveyAdapter
 
+    //profile binding 용
+    private var ratingDataList = ArrayList<StudyMemberDTO>()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityStudyInfoBinding.inflate(layoutInflater)
@@ -38,6 +40,7 @@ class StudyInfoActivity : AppCompatActivity() {
             onBackPressed()
         }
 
+        getProfileData(intent.getIntExtra("studyId", 0))
         getData(intent.getIntExtra("studyId", 0))
 
         binding.btnNext.setOnClickListener {
@@ -104,7 +107,45 @@ class StudyInfoActivity : AppCompatActivity() {
         for(i in 1..content.questions.size)
             surveyDataList.add(SurveyData(i, content.questions[i-1].question!!))
         surveyAdapter.notifyDataSetChanged()
+    }
 
+    private fun getProfileData(studyId: Int) {
+        val api = APIS.create()
+        api.getStudyMemberList(studyId.toLong()).enqueue(object : Callback<StudyMemberListDTO> {
+            override fun onResponse(
+                call: Call<StudyMemberListDTO>,
+                response: Response<StudyMemberListDTO>
+            ) {
+                Log.d("sia server1 succ", response.body().toString())
+                val tmpDTO = response.body()
 
+                //host일 경우 setting
+                for(i in tmpDTO!!.studyMemberList!!) {
+                    if(i.grade == "host") {
+                        binding.tvWriterNickname.setText(i.nickname)
+                        binding.tvBattery.setText(i.battery.toString() + "%")
+                        when(i.battery) {
+                            in 0..20 -> binding.imgBattery.setImageDrawable(binding.root.resources.getDrawable(R.drawable.ic_battery_20))
+                            in 21..40 -> binding.imgBattery.setImageDrawable(binding.root.resources.getDrawable(R.drawable.ic_battery_40))
+                            in 41..70 -> binding.imgBattery.setImageDrawable(binding.root.resources.getDrawable(R.drawable.ic_battery_70))
+                            in 71..100 -> binding.imgBattery.setImageDrawable(binding.root.resources.getDrawable(R.drawable.ic_battery_90))
+                        }
+                        when(i.profile) {
+                            0 -> binding.imgWriterProfileImage.setImageDrawable(binding.root.resources.getDrawable(R.drawable.ic_profile_0))
+                            1 -> binding.imgWriterProfileImage.setImageDrawable(binding.root.resources.getDrawable(R.drawable.ic_profile_1))
+                            2 -> binding.imgWriterProfileImage.setImageDrawable(binding.root.resources.getDrawable(R.drawable.ic_profile_2))
+                            3 -> binding.imgWriterProfileImage.setImageDrawable(binding.root.resources.getDrawable(R.drawable.ic_profile_3))
+                        }
+                    }
+                }
+
+            }
+
+            override fun onFailure(call: Call<StudyMemberListDTO>, t: Throwable) {
+                Log.d("sia server1 fail", t.message.toString())
+                Toast.makeText(binding.root.context, "다시 시도해주세요", Toast.LENGTH_SHORT).show()
+            }
+
+        })
     }
 }
