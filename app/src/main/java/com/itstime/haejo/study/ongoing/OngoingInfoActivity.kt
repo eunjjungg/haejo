@@ -64,6 +64,16 @@ class OngoingInfoActivity : AppCompatActivity() {
                 ratingDataList.clear()
                 ratingDataList.addAll(tmpDTO!!.studyMemberList!!)
 
+                //dummy data start
+                ratingDataList.apply {
+                    add(StudyMemberDTO("해조요", "guest", 35, 0))
+                    add(StudyMemberDTO("갱쥐", "guest", 95, 1))
+                    add(StudyMemberDTO("왜요왜왜", "guest", 20, 2))
+                    add(StudyMemberDTO("NOLY", "guest", 55, 3))
+                    add(StudyMemberDTO("검정취마", "guest", 65, 2))
+                }
+                //dummy data end
+
                 adapterOngoingRecyclerRatingList.notifyDataSetChanged()
             }
 
