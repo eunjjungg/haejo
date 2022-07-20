@@ -43,6 +43,8 @@ data class PostContentDTO(
     var status: String? = null,
     @SerializedName("categories")
     var category: String? = null,
+    @SerializedName("notification")
+    var notification: String? = null,
     @SerializedName("questions")
     var questions: List<questionDTO>
 )

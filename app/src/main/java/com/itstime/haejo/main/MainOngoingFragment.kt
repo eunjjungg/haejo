@@ -13,6 +13,7 @@ import com.itstime.haejo.api.PostListArrayDTO
 import com.itstime.haejo.api.PostListDTO
 import com.itstime.haejo.databinding.FragmentMainOngoingBinding
 import com.itstime.haejo.main.util.MainHomePostAdapter
+import com.itstime.haejo.study.util.AdapterOngoingRecyclerPostList
 import com.itstime.haejo.util.AdapterRecyclerPostList
 import com.itstime.haejo.util.AppSetting
 import com.itstime.haejo.util.PostData
@@ -28,21 +29,25 @@ class MainOngoingFragment : Fragment() {
 
     //recyclerView Post List 용
     private var postDataList = ArrayList<PostListDTO>()
-    private lateinit var adpterRecyclerPostList: AdapterRecyclerPostList
+    private lateinit var adapterOngoingRecyclerPostList:
+            AdapterOngoingRecyclerPostList
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        binding = FragmentMainOngoingBinding.inflate(inflater, container, false)
+        binding = FragmentMainOngoingBinding.inflate(
+            inflater,
+            container,
+            false)
 
         binding.recycPost.apply {
             binding.recycPost.layoutManager = LinearLayoutManager(binding.root.context)
-            adpterRecyclerPostList = AdapterRecyclerPostList()
+            adapterOngoingRecyclerPostList = AdapterOngoingRecyclerPostList()
             postDataList.add(PostListDTO(title=" "))
-            adpterRecyclerPostList.listData = postDataList
-            binding.recycPost.adapter = adpterRecyclerPostList
+            adapterOngoingRecyclerPostList.listData = postDataList
+            binding.recycPost.adapter = adapterOngoingRecyclerPostList
         }
 
         getPostDataList(AppSetting.prefs.getMemberId().toLong())
@@ -54,7 +59,7 @@ class MainOngoingFragment : Fragment() {
 
     private fun getPostDataList(memberId: Long) {
         val api = APIS.create()
-        api.getOnGoingPostList(157).enqueue(object : Callback<PostListArrayDTO> {
+        api.getOnGoingPostList(memberId).enqueue(object : Callback<PostListArrayDTO> {
             override fun onResponse(
                 call: Call<PostListArrayDTO>,
                 response: Response<PostListArrayDTO>
@@ -64,13 +69,13 @@ class MainOngoingFragment : Fragment() {
                     val tmpDTO = PostListDTO(title = ";")
                     postDataList.clear()
                     postDataList.add(tmpDTO)
-                    adpterRecyclerPostList.notifyDataSetChanged()
+                    adapterOngoingRecyclerPostList.notifyDataSetChanged()
                 }
                 else {
                     val tmpDTO = response.body()
                     postDataList.clear()
                     postDataList.addAll(tmpDTO!!.postListDTO!!)
-                    adpterRecyclerPostList.notifyDataSetChanged()
+                    adapterOngoingRecyclerPostList.notifyDataSetChanged()
                 }
             }
 
@@ -78,7 +83,7 @@ class MainOngoingFragment : Fragment() {
                 val tmpDTO = PostListDTO(title = ";")
                 postDataList.clear()
                 postDataList.add(tmpDTO)
-                adpterRecyclerPostList.notifyDataSetChanged()
+                adapterOngoingRecyclerPostList.notifyDataSetChanged()
                 Log.d("mof server failure", t.message.toString())
             }
 

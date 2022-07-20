@@ -32,3 +32,19 @@ data class PostUserResult(
     @SerializedName("id")
     var result: Long? = null
 )
+
+data class StudyMemberDTO(
+    @SerializedName("nickname")
+    var nickname: String? = null,
+    @SerializedName("grade")
+    var grade: String? = null,
+    @SerializedName("battery")
+    var battery: Int? = null,
+    @SerializedName("profile")
+    var profile: Int? = null
+)
+
+data class StudyMemberListDTO(
+    @SerializedName("data")
+    var studyMemberList: List<StudyMemberDTO>? = null
+)

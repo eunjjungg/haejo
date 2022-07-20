@@ -54,6 +54,7 @@
         <entry key="..\:/Users/ej/haejo/app/src/main/res/layout/activity_mypage_post.xml" value="0.32659795098837435" />
         <entry key="..\:/Users/ej/haejo/app/src/main/res/layout/activity_mypage_setting.xml" value="0.3619791666666667" />
         <entry key="..\:/Users/ej/haejo/app/src/main/res/layout/activity_mypage_study.xml" value="0.46044303797468356" />
+        <entry key="..\:/Users/ej/haejo/app/src/main/res/layout/activity_ongoing_info.xml" value="0.32659795098837435" />
         <entry key="..\:/Users/ej/haejo/app/src/main/res/layout/activity_setting_mypage.xml" value="0.24010416666666667" />
         <entry key="..\:/Users/ej/haejo/app/src/main/res/layout/activity_study_apply.xml" value="0.32659795098837435" />
         <entry key="..\:/Users/ej/haejo/app/src/main/res/layout/activity_study_apply1.xml" value="0.3619791666666667" />
@@ -71,6 +72,7 @@
         <entry key="..\:/Users/ej/haejo/app/src/main/res/layout/custom_recycler_empty.xml" value="0.32659795098837435" />
         <entry key="..\:/Users/ej/haejo/app/src/main/res/layout/custom_recycler_loading.xml" value="0.2177319673255829" />
         <entry key="..\:/Users/ej/haejo/app/src/main/res/layout/custom_recycler_post_list.xml" value="0.32659795098837435" />
+        <entry key="..\:/Users/ej/haejo/app/src/main/res/layout/custom_recycler_rating.xml" value="0.32659795098837435" />
         <entry key="..\:/Users/ej/haejo/app/src/main/res/layout/custom_recycler_survey.xml" value="0.32659795098837435" />
         <entry key="..\:/Users/ej/haejo/app/src/main/res/layout/custom_recycler_survey_edittable.xml" value="0.2902621722846442" />
         <entry key="..\:/Users/ej/haejo/app/src/main/res/layout/custom_spinner_font.xml" value="0.24010416666666667" />
