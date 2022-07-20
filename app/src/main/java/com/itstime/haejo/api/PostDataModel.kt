@@ -16,6 +16,11 @@ data class PostListDTO(
     var title: String? = null
 )
 
+data class PostListArrayDTO(
+    @SerializedName("data")
+    var postListDTO: List<PostListDTO>? = null
+)
+
 //StudyInfo에서 내용 보일 때 필요한 DTO : get용도
 data class PostContentDTO(
     @SerializedName("studyId")
@@ -38,6 +43,8 @@ data class PostContentDTO(
     var status: String? = null,
     @SerializedName("categories")
     var category: String? = null,
+    @SerializedName("notification")
+    var notification: String? = null,
     @SerializedName("questions")
     var questions: List<questionDTO>
 )

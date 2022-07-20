@@ -1,4 +1,4 @@
-package com.itstime.haejo.util
+package com.itstime.haejo.study.util
 
 import android.content.Intent
 import android.view.LayoutInflater
@@ -8,11 +8,10 @@ import com.itstime.haejo.api.PostListDTO
 import com.itstime.haejo.databinding.CustomRecyclerEmptyBinding
 import com.itstime.haejo.databinding.CustomRecyclerLoadingBinding
 import com.itstime.haejo.databinding.CustomRecyclerPostListBinding
-import com.itstime.haejo.main.util.MainHomePostAdapter
 import com.itstime.haejo.study.StudyInfoActivity
-import com.itstime.haejo.util.AdapterRecyclerPostList.*
+import com.itstime.haejo.study.ongoing.OngoingInfoActivity
 
-class AdapterRecyclerPostList()
+class AdapterOngoingRecyclerPostList
     : RecyclerView.Adapter<RecyclerView.ViewHolder>(){
     private val VIEW_TYPE_ITEM = 0
     private val VIEW_TYPE_LOADING = 1
@@ -23,7 +22,6 @@ class AdapterRecyclerPostList()
         parent: ViewGroup,
         viewType: Int
     ): RecyclerView.ViewHolder {
-
         return when (viewType) {
             VIEW_TYPE_CANCEL -> {
                 val layoutInflater = LayoutInflater.from(parent.context)
@@ -71,8 +69,8 @@ class AdapterRecyclerPostList()
             binding.tvTagRegion.setText(item.region)
 
             itemView.setOnClickListener {
-                Intent(binding.root.context, StudyInfoActivity::class.java).apply {
-                    putExtra("studyId", item.studyId!!.toInt())
+                Intent(binding.root.context, OngoingInfoActivity::class.java).apply {
+                    //putExtra("studyId", item.studyId!!.toLong())
                 }.run {binding.root.context.startActivity(this)}
             }
         }

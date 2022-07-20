@@ -3,6 +3,7 @@ package com.itstime.haejo.mypage
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.itstime.haejo.api.PostListDTO
 import com.itstime.haejo.databinding.ActivityMypagePostBinding
 import com.itstime.haejo.util.AdapterRecyclerPostList
 import com.itstime.haejo.util.PostData
@@ -13,7 +14,7 @@ class MypagePostActivity : AppCompatActivity() {
     lateinit var binding : ActivityMypagePostBinding
 
     //recyclerView Post List 용
-    private val postDataList: MutableList<PostData> = mutableListOf()
+    private val postDataList: MutableList<PostListDTO> = mutableListOf()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,26 +33,8 @@ class MypagePostActivity : AppCompatActivity() {
         val postAdapter = AdapterRecyclerPostList()
         postDataList.apply {
             //dummy data
-            add(PostData("이것은 첫 번째 제목입니다.", "지역 무관",
-                "비대면", "11/13 12:24", 4))
-            add(PostData("이것은 두 번째 제목입니다.", "경북",
-                "대면", "11/13 12:24", 12))
-            add(PostData("이것은 세 번째 제목입니다.", "인천",
-                "비대면", "11/13 12:24", 123))
-            add(PostData("이것은 네 번째 제목입니다.", "전북",
-                "대면", "11/13 12:24", 0))
-            add(PostData("이것은 다섯 번째 제목입니다.", "제주",
-                "비대면", "11/13 12:24", 1))
-            add(PostData("이것은 첫 번째 제목입니다.", "지역 무관",
-                "비대면", "11/13 12:24", 4))
-            add(PostData("이것은 두 번째 제목입니다.", "경북",
-                "대면", "11/13 12:24", 12))
-            add(PostData("이것은 세 번째 제목입니다.", "인천",
-                "비대면", "11/13 12:24", 123))
-            add(PostData("이것은 네 번째 제목입니다.", "전북",
-                "대면", "11/13 12:24", 0))
-            add(PostData("이것은 다섯 번째 제목입니다.", "제주",
-                "비대면", "11/13 12:24", 1))
+            add(PostListDTO(title = ";"))
+
         }
 
         postAdapter.listData = postDataList
