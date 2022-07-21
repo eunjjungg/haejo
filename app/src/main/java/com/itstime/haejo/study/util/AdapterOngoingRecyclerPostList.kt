@@ -70,7 +70,7 @@ class AdapterOngoingRecyclerPostList
 
             itemView.setOnClickListener {
                 Intent(binding.root.context, OngoingInfoActivity::class.java).apply {
-                    //putExtra("studyId", item.studyId!!.toLong())
+                    putExtra("studyId", item.studyId!!.toLong())
                 }.run {binding.root.context.startActivity(this)}
             }
         }

@@ -41,7 +41,9 @@ data class StudyMemberDTO(
     @SerializedName("battery")
     var battery: Int? = null,
     @SerializedName("profile")
-    var profile: Int? = null
+    var profile: Int? = null,
+    @SerializedName("memberId")
+    var memberId: Long? = null
 )
 
 data class StudyMemberListDTO(

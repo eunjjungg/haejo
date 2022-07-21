@@ -6,6 +6,7 @@ import com.itstime.haejo.R
 import com.itstime.haejo.api.StudyMemberDTO
 import com.itstime.haejo.databinding.CustomRecyclerLoadingBinding
 import com.itstime.haejo.databinding.CustomRecyclerRatingBinding
+import com.itstime.haejo.util.AppSetting
 
 class AdapterOngoingRecyclerRatingList
     : RecyclerView.Adapter<RecyclerView.ViewHolder>(){
@@ -73,8 +74,8 @@ class AdapterOngoingRecyclerRatingList
                 3 -> binding.imgProfile.setImageDrawable(binding.root.resources.getDrawable(R.drawable.ic_profile_3))
             }
 
-            //item.memberId == 내 아이디 -> 평가하기 button disable 작업!
-
+            if(item.memberId == AppSetting.prefs.getMemberId().toLong())
+                binding.btnRating.isEnabled = false
         }
     }
 

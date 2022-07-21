@@ -18,7 +18,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.10" />
+        app:layout_constraintGuide_percent="0.08" />
 
 
     <TextView
@@ -27,7 +27,8 @@
         android:layout_height="0dp"
         android:layout_marginStart="16dp"
         android:fontFamily="@font/nanum_square_round_r"
-        android:autoSizeTextType="uniform"
+        android:textColor="@color/black"
+        android:textSize="32sp"
         android:text="UStudy"
         app:layout_constraintBottom_toTopOf="@+id/logoBotGuide"
         app:layout_constraintStart_toStartOf="parent"

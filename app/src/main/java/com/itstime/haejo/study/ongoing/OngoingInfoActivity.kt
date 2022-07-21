@@ -26,8 +26,6 @@ class OngoingInfoActivity : AppCompatActivity() {
             AdapterOngoingRecyclerRatingList
     private var studyId: Long = 0
     private val api = APIS.create()
-    //post content 채우기 용
-    private lateinit var postContentDTO: PostContentDTO
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -47,7 +45,7 @@ class OngoingInfoActivity : AppCompatActivity() {
         }
 
 
-        studyId = intent.getLongExtra("studyId", 178)
+        studyId = intent.getLongExtra("studyId", 0)
         getRatingDataList(studyId)
         getPostContentData(studyId)
     }
