@@ -2,7 +2,7 @@
 <resources>
 
     <string-array name="region">
-        <item>지역 선택</item>
+        <item>지역</item>
         <item>비대면</item>
         <item>서울</item>
         <item>경기</item>
@@ -25,7 +25,7 @@
     </string-array>
 
     <string-array name="week">
-        <item>요일 선택</item>
+        <item>요일</item>
         <item>월</item>
         <item>화</item>
         <item>수</item>
@@ -36,13 +36,13 @@
     </string-array>
 
     <string-array name="isUntact">
-        <item>대면 여부</item>
+        <item>대면</item>
         <item>대면</item>
         <item>비대면</item>
     </string-array>
 
     <string-array name="category">
-        <item>분야 선택</item>
+        <item>분야</item>
         <item>어학</item>
         <item>취업</item>
         <item>취미</item>
@@ -50,14 +50,14 @@
     </string-array>
 
     <string-array name="questionAmount">
-        <item>설문 개수</item>
+        <item>설문 수</item>
         <item>1개</item>
         <item>2개</item>
         <item>3개</item>
     </string-array>
 
     <string-array name="peopleAmount">
-        <item>인원 선택</item>
+        <item>인원</item>
         <item>4인 이하</item>
         <item>6인 이하</item>
         <item>8인 이하</item>
