@@ -48,7 +48,7 @@
             android:name=".mypage.MypageCommentActivity"
             android:exported="false" />
         <activity
-            android:name=".mypage.MypageSetting"
+            android:name=".mypage.MypageInfo"
             android:exported="false" />
         <activity
             android:name=".BeginActivity"

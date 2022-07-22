@@ -8,6 +8,27 @@
         하루에 4시간 이상 하는거 가능하다고 생각하시는 분들만 신청해주셨으면 좋겠습니다!
         인증 방식은 오픈카톡 혹은 이 앱에서 채팅으로 사진 보내는 형식으로 진행할거구요!
         인원 모이는 대로 바로 시작할 생각이니까 많은 참여 부탁드려요 🤗</string>
+
+    <string name="customTeamInfo">IT\’s TIME 1기
+        \nTEAM 해조 : 해변가의 조약돌
+        \n김의진 @euijinin : 기획
+        \n박정운 @jwpark1211 : 백엔드
+        \n정은정 @eunjjungg : 프론트엔드, 디자인, PM
+    </string>
+
+    <string name="customToolInfo">디자인 : Figma
+        \n백엔드 : Spring, Java, MySQL, EC2 RDS
+        \n프론트엔드 : Android Studio, Kotlin, Firebase, Retrofit2, Room, Lottie
+        \n협업 툴 : Notion, Figma, Github, Discord, Slack
+    </string>
+
+    <string name="customGit">
+        Frontend github:
+        \nhttps://github.com/eunjjungg/haejo
+        \nBackend github:
+        \nhttps://github.com/jwpark1211/ItsTime_Ustudy.git
+    </string>
+
     <string name="title_activity_begin_set_profile">BeginSetProfile</string>
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>

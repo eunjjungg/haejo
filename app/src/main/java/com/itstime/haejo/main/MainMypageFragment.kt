@@ -13,7 +13,7 @@ import com.itstime.haejo.api.UserGetDTO
 import com.itstime.haejo.databinding.FragmentMainMypageBinding
 import com.itstime.haejo.mypage.MypageBookmarkActivity
 import com.itstime.haejo.mypage.MypageCommentActivity
-import com.itstime.haejo.mypage.MypageSetting
+import com.itstime.haejo.mypage.MypageInfo
 import com.itstime.haejo.mypage.MypageStudyActivity
 import com.itstime.haejo.util.AppSetting
 import retrofit2.Call
@@ -104,7 +104,7 @@ class MainMypageFragment : Fragment() {
         }
 
         binding.tvCredit.setOnClickListener {
-            intent = Intent(binding.root.context, MypageSetting::class.java)
+            intent = Intent(binding.root.context, MypageInfo::class.java)
             startActivity(intent)
         }
     }
