@@ -9,8 +9,10 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.itstime.haejo.R
 import com.itstime.haejo.api.*
 import com.itstime.haejo.databinding.ActivityStudyInfoBinding
-import com.itstime.haejo.study.util.StudyInfoSurveyAdapter
+import com.itstime.haejo.study.util.AdapterStudyInfoComment
+import com.itstime.haejo.study.util.AdapterStudyInfoSurvey
 import com.itstime.haejo.study.util.SurveyData
+import com.itstime.haejo.util.AppSetting
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -24,7 +26,11 @@ class StudyInfoActivity : AppCompatActivity() {
 
     //recyclerView Survey 용
     private val surveyDataList: MutableList<SurveyData> = mutableListOf()
-    lateinit var surveyAdapter: StudyInfoSurveyAdapter
+    lateinit var surveyAdapter: AdapterStudyInfoSurvey
+
+    //recyclerView Comment 용
+    private val commentDataList: MutableList<CommentDTO> = mutableListOf()
+    lateinit var commentAdapter: AdapterStudyInfoComment
 
     //profile binding 용
     private var ratingDataList = ArrayList<StudyMemberDTO>()
@@ -35,6 +41,7 @@ class StudyInfoActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         setRecyclerSurvey()
+        setRecyclerComment()
 
         binding.btnBack.setOnClickListener {
             onBackPressed()
@@ -51,13 +58,24 @@ class StudyInfoActivity : AppCompatActivity() {
             }
         }
 
+        binding.btnComment.setOnClickListener {
+            commentDataList.add(CommentDTO(
+                binding.etComment.text.toString(),
+                0,
+                0,
+                0,
+                AppSetting.prefs.getProfile(),
+                AppSetting.prefs.getNickname(),
+                AppSetting.prefs.getMemberId().toLong()
+            ))
+            commentAdapter.notifyDataSetChanged()
+        }
+
     }
 
-    //recyclerView 어댑터만 연결
+    //recyclerView Survey 어댑터만 연결
     private fun setRecyclerSurvey() {
-        surveyAdapter = StudyInfoSurveyAdapter()
-
-
+        surveyAdapter = AdapterStudyInfoSurvey()
         surveyAdapter.listData = surveyDataList
         binding.recycSurvey.adapter = surveyAdapter
         binding.recycSurvey.layoutManager = LinearLayoutManager(this)
@@ -148,4 +166,14 @@ class StudyInfoActivity : AppCompatActivity() {
 
         })
     }
+
+    //recyclerView Comment 어댑터만 연결
+    private fun setRecyclerComment() {
+        commentAdapter = AdapterStudyInfoComment()
+        commentAdapter.listData = commentDataList
+        binding.recycComment.adapter = commentAdapter
+        binding.recycComment.layoutManager = LinearLayoutManager(this)
+    }
+
+
 }

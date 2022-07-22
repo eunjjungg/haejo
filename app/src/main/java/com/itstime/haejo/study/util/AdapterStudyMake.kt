@@ -8,7 +8,7 @@ import androidx.core.content.ContextCompat
 import com.itstime.haejo.R
 import com.itstime.haejo.databinding.ActivityStudyMakeBinding
 
-class StudyMakeAdapter(val binding: ActivityStudyMakeBinding) {
+class AdapterStudyMake(val binding: ActivityStudyMakeBinding) {
 
     //스피너에 어댑터 추가 (기본 설정)
     fun spinnerAdapterConnect() {

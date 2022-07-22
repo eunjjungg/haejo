@@ -9,20 +9,20 @@ import com.itstime.haejo.databinding.CustomRecyclerSurveyEdittableBinding
 import com.itstime.haejo.util.AppSetting
 
 
-class StudyMakeSurveyAdapter()
-    :RecyclerView.Adapter<StudyMakeSurveyAdapter.ViewHolder>() {
+class AdapterStudyMakeSurvey()
+    :RecyclerView.Adapter<AdapterStudyMakeSurvey.ViewHolder>() {
 
     var listData = mutableListOf<String?>()
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
-    ): StudyMakeSurveyAdapter.ViewHolder {
+    ): AdapterStudyMakeSurvey.ViewHolder {
         val binding = CustomRecyclerSurveyEdittableBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return ViewHolder(binding)
     }
 
-    override fun onBindViewHolder(holder: StudyMakeSurveyAdapter.ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: AdapterStudyMakeSurvey.ViewHolder, position: Int) {
         val data = listData[position]
         holder.bind()
     }

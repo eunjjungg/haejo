@@ -7,8 +7,7 @@ import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.itstime.haejo.api.*
 import com.itstime.haejo.databinding.ActivityStudyApplyBinding
-import com.itstime.haejo.study.util.StudyApplySurveyAdapter
-import com.itstime.haejo.study.util.StudyMakeSurveyAdapter
+import com.itstime.haejo.study.util.AdapterStudyApplySurvey
 import com.itstime.haejo.study.util.SurveyData
 import com.itstime.haejo.util.AppSetting
 import retrofit2.Call
@@ -22,7 +21,7 @@ class StudyApplyActivity : AppCompatActivity() {
     lateinit var postApplicationDTO: PostApplicationDTO
     private val answerDTOList: MutableList<AnswerDTO> = mutableListOf()
     lateinit var content : PostContentDTO
-    lateinit var surveyAdapter: StudyApplySurveyAdapter
+    lateinit var surveyAdapter: AdapterStudyApplySurvey
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -47,7 +46,7 @@ class StudyApplyActivity : AppCompatActivity() {
     }
 
     private fun setRecyclerSurvey(questionAmount: Int) {
-        surveyAdapter = StudyApplySurveyAdapter()
+        surveyAdapter = AdapterStudyApplySurvey()
         for(i in 1..questionAmount) {
             surveyDataList.add(SurveyData(i, "$i 번째 설문 제목"))
         }
