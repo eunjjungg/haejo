@@ -86,6 +86,7 @@ class BeginSetProfileActivity : AppCompatActivity() {
 
     private fun uploadUserDataToServer() {
         AppSetting.prefs.setNickname(binding.etName.text.toString())
+        AppSetting.prefs.setProfile(userProfile)
         val api = APIS.create()
         val uploadData = UploadUserModel(AppSetting.prefs.getEmail(), AppSetting.prefs.getName(), AppSetting.prefs.getNickname(), userProfile)
         val postUserData = api.postUser(uploadData)

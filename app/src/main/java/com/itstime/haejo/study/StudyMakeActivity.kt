@@ -5,15 +5,12 @@ import android.content.res.Resources
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.view.KeyEvent
-import android.view.inputmethod.EditorInfo
-import android.widget.EditText
 import android.widget.Toast
 import com.itstime.haejo.R
 import com.itstime.haejo.databinding.ActivityStudyMakeBinding
 import com.itstime.haejo.roomdb.AppDatabase
 import com.itstime.haejo.roomdb.StudyMakeEntity
-import com.itstime.haejo.study.util.StudyMakeAdapter
+import com.itstime.haejo.study.util.AdapterStudyMake
 import com.itstime.haejo.util.AppSetting
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -31,8 +28,8 @@ class StudyMakeActivity : AppCompatActivity() {
 
         res = resources
 
-        StudyMakeAdapter(binding).spinnerAdapterConnect()
-        StudyMakeAdapter(binding).spinnerSelection()
+        AdapterStudyMake(binding).spinnerAdapterConnect()
+        AdapterStudyMake(binding).spinnerSelection()
 
         //뒤로가기 버튼
         binding.btnBack.setOnClickListener {

@@ -5,20 +5,20 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.itstime.haejo.databinding.CustomRecyclerSurveyBinding
 
-class StudyInfoSurveyAdapter()
-    : RecyclerView.Adapter<StudyInfoSurveyAdapter.ViewHolder>(){
+class AdapterStudyInfoSurvey()
+    : RecyclerView.Adapter<AdapterStudyInfoSurvey.ViewHolder>(){
 
     var listData = mutableListOf<SurveyData>()
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
-    ): StudyInfoSurveyAdapter.ViewHolder {
+    ): AdapterStudyInfoSurvey.ViewHolder {
         val binding = CustomRecyclerSurveyBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return ViewHolder(binding)
     }
 
-    override fun onBindViewHolder(holder: StudyInfoSurveyAdapter.ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: AdapterStudyInfoSurvey.ViewHolder, position: Int) {
         val data = listData[position]
         holder.bind(data)
     }

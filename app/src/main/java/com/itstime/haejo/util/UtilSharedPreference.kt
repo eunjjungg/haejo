@@ -39,6 +39,14 @@ class UtilSharedPreference(context: Context) {
         prefs.edit().putString("nickname", str).apply()
     }
 
+    fun getProfile(): Int {
+        return prefs.getInt("profile", 0)
+    }
+
+    fun setProfile(profile: Int) {
+        prefs.edit().putInt("profile", profile).apply()
+    }
+
     fun getTmpString0(): String? {
         return prefs.getString("tmpString1", null)
     }

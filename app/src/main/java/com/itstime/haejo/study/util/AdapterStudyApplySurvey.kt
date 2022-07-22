@@ -8,21 +8,21 @@ import androidx.recyclerview.widget.RecyclerView
 import com.itstime.haejo.databinding.CustomRecyclerApplyBinding
 import com.itstime.haejo.util.AppSetting
 
-class StudyApplySurveyAdapter()
-    : RecyclerView.Adapter<StudyApplySurveyAdapter.ViewHolder>() {
+class AdapterStudyApplySurvey()
+    : RecyclerView.Adapter<AdapterStudyApplySurvey.ViewHolder>() {
 
     var listData = mutableListOf<SurveyData>()
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
-    ): StudyApplySurveyAdapter.ViewHolder {
+    ): AdapterStudyApplySurvey.ViewHolder {
         val binding = CustomRecyclerApplyBinding
             .inflate(LayoutInflater.from(parent.context), parent, false)
         return ViewHolder(binding)
     }
 
-    override fun onBindViewHolder(holder: StudyApplySurveyAdapter.ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: AdapterStudyApplySurvey.ViewHolder, position: Int) {
         val data = listData[position]
         holder.bind(data)
     }

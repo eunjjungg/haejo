@@ -8,9 +8,7 @@ import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.itstime.haejo.databinding.ActivityStudyMakeSurveyBinding
 import com.itstime.haejo.roomdb.AppDatabase
-import com.itstime.haejo.study.util.StudyInfoSurveyAdapter
-import com.itstime.haejo.study.util.StudyMakeSurveyAdapter
-import com.itstime.haejo.study.util.SurveyData
+import com.itstime.haejo.study.util.AdapterStudyMakeSurvey
 import com.itstime.haejo.util.AppSetting
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -45,7 +43,7 @@ class StudyMakeSurveyActivity : AppCompatActivity() {
     }
 
     private fun setRecyclerSurvey(questionAmount: Int) {
-        val surveyAdapter = StudyMakeSurveyAdapter()
+        val surveyAdapter = AdapterStudyMakeSurvey()
         for(i in 1..questionAmount) {
             surveyDataList.add(null)
         }
