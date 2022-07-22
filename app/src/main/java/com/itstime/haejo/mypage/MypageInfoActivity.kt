@@ -4,7 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.itstime.haejo.databinding.ActivityMypageInfoBinding
 
-class MypageInfo : AppCompatActivity() {
+class MypageInfoActivity : AppCompatActivity() {
     lateinit var binding : ActivityMypageInfoBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {

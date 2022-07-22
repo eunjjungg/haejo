@@ -12,6 +12,9 @@
         android:theme="@style/Theme.Haejo"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".mypage.MypageRatingActivity"
+            android:exported="false" />
+        <activity
             android:name=".study.ongoing.OngoingInfoActivity"
             android:exported="false" />
         <activity
@@ -48,7 +51,7 @@
             android:name=".mypage.MypageCommentActivity"
             android:exported="false" />
         <activity
-            android:name=".mypage.MypageInfo"
+            android:name=".mypage.MypageInfoActivity"
             android:exported="false" />
         <activity
             android:name=".BeginActivity"

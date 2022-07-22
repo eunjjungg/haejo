@@ -35,6 +35,11 @@ interface APIS {
         @Path("id") id: Long
     ): Call<PostListArrayDTO>
 
+    @GET("api/studyMember/study/Host/{id}")
+    fun getWroteStudyPostList(
+        @Path("id") id: Long
+    ): Call<PostListArrayDTO>
+
     @GET("api/study/{id}")
     fun getPostList (
         @Path("id") id: Int
