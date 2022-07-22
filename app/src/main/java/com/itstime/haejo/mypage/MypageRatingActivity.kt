@@ -11,5 +11,9 @@ class MypageRatingActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMypageRatingBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        binding.btnBack.setOnClickListener {
+            onBackPressed()
+        }
     }
 }

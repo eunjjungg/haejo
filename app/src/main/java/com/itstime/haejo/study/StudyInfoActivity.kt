@@ -58,6 +58,10 @@ class StudyInfoActivity : AppCompatActivity() {
             }
         }
 
+        binding.btnBookmark.setOnClickListener {
+            binding.btnBookmark.setImageResource(R.drawable.ic_bookmark_selected)
+        }
+
         binding.btnComment.setOnClickListener {
             commentDataList.add(CommentDTO(
                 binding.etComment.text.toString(),
@@ -154,6 +158,10 @@ class StudyInfoActivity : AppCompatActivity() {
                             2 -> binding.imgWriterProfileImage.setImageDrawable(binding.root.resources.getDrawable(R.drawable.ic_profile_2))
                             3 -> binding.imgWriterProfileImage.setImageDrawable(binding.root.resources.getDrawable(R.drawable.ic_profile_3))
                         }
+
+                        //host와 앱 사용 user가 동일한 경우 지원하기가 아닌 종료로 버튼 변경
+                        if(AppSetting.prefs.getMemberId() == i.memberId!!.toInt())
+                            binding.btnNext.setText("모집 마감")
                     }
                 }
 
