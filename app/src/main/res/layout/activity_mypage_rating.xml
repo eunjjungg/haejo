@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".mypage.MypageBookmarkActivity">
+    tools:context=".mypage.MypageRatingActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -31,17 +31,17 @@
             tools:ignore="SpeakableTextPresentCheck" />
 
         <ImageView
-            android:id="@+id/imgBookmark"
+            android:id="@+id/imgRating"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_marginStart="8dp"
-            android:src="@drawable/ic_bookmark_cute"
+            android:src="@drawable/ic_battery_cute"
             app:layout_constraintBottom_toBottomOf="@+id/tvTitle"
             app:layout_constraintEnd_toStartOf="@id/tvTitle"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/tvTitle" />
 
-        <!--내가 즐겨찾기한 스터디-->
+        <!--내가 작성한 스터디-->
         <TextView
             android:id="@+id/tvTitle"
             android:layout_width="wrap_content"
@@ -49,9 +49,9 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:fontFamily="@font/nanum_square_round_b"
-            android:text="즐겨찾기한 스터디"
+            android:text="받은 후기"
             android:textSize="24sp"
-            app:layout_constraintStart_toEndOf="@+id/imgBookmark"
+            app:layout_constraintStart_toEndOf="@+id/imgRating"
             app:layout_constraintTop_toBottomOf="@+id/btnBack" />
 
         <androidx.recyclerview.widget.RecyclerView
@@ -62,11 +62,8 @@
             android:layout_marginBottom="16dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/imgBookmark"
+            app:layout_constraintStart_toStartOf="@+id/imgRating"
             app:layout_constraintTop_toBottomOf="@+id/tvTitle" />
 
-
-
     </androidx.constraintlayout.widget.ConstraintLayout>
-
 </androidx.constraintlayout.widget.ConstraintLayout>
