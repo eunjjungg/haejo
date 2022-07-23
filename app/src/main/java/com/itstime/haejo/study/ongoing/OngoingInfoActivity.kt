@@ -64,11 +64,11 @@ class OngoingInfoActivity : AppCompatActivity() {
 
                 //dummy data start
                 ratingDataList.apply {
-                    add(StudyMemberDTO("해조요", "guest", 35, 0))
-                    add(StudyMemberDTO("갱쥐", "guest", 95, 1))
-                    add(StudyMemberDTO("왜요왜왜", "guest", 20, 2))
-                    add(StudyMemberDTO("NOLY", "guest", 55, 3))
-                    add(StudyMemberDTO("검정취마", "guest", 65, 2))
+                    add(StudyMemberDTO("해조요", "guest", 35, 0, 117))
+                    add(StudyMemberDTO("갱쥐", "guest", 95, 1, 117))
+                    add(StudyMemberDTO("왜요왜왜", "guest", 20, 2, 117))
+                    add(StudyMemberDTO("NOLY", "guest", 55, 3, 117))
+                    add(StudyMemberDTO("검정취마", "guest", 65, 2, 117))
                 }
                 //dummy data end
 
@@ -83,6 +83,7 @@ class OngoingInfoActivity : AppCompatActivity() {
         })
     }
 
+    //study post 정보 가져오기
     private fun getPostContentData(studyId: Long) {
         api.getPostContent(studyId.toInt()).enqueue(object : Callback<PostContentDTO> {
             override fun onResponse(
@@ -105,6 +106,7 @@ class OngoingInfoActivity : AppCompatActivity() {
         })
     }
 
+    //study post 정보 화면에 나타내기
     private fun initPostContent(postContentDTO: PostContentDTO) {
         binding.tvTitle.setText(postContentDTO.title)
         binding.tvNotification.setText(postContentDTO.notification)

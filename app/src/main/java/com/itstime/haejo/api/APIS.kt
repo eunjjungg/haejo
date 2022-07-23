@@ -30,6 +30,12 @@ interface APIS {
         @Body jsonParams: PostContentUploadDTO
     ): Call<PostStudyResultDTO>
 
+    @POST("api/member/{id}/review")
+    fun postRating(
+        @Path("id") id: Long,
+        @Body jsonParams: PostRatingDTO
+    ): Call<PostRatingResultDTO>
+
     @GET("api/studyMember/study/{id}")
     fun getOnGoingPostList(
         @Path("id") id: Long

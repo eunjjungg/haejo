@@ -1,11 +1,17 @@
 package com.itstime.haejo.study.util
+import android.app.AlertDialog
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.RadioGroup
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.itstime.haejo.R
 import com.itstime.haejo.api.StudyMemberDTO
+import com.itstime.haejo.databinding.CustomDialogRatingBinding
 import com.itstime.haejo.databinding.CustomRecyclerLoadingBinding
 import com.itstime.haejo.databinding.CustomRecyclerRatingBinding
+import com.itstime.haejo.study.ongoing.OngoingRatingDialog
 import com.itstime.haejo.util.AppSetting
 
 class AdapterOngoingRecyclerRatingList
@@ -76,6 +82,13 @@ class AdapterOngoingRecyclerRatingList
 
             if(item.memberId == AppSetting.prefs.getMemberId().toLong())
                 binding.btnRating.isEnabled = false
+
+            //평가하기 버튼 누르면 dialog 동작
+            binding.btnRating.setOnClickListener {
+                OngoingRatingDialog().showDialog(binding, item.memberId!!.toLong())
+            }
+
+
         }
     }
 
