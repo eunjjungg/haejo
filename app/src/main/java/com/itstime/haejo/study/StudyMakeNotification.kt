@@ -96,7 +96,7 @@ class StudyMakeNotification : AppCompatActivity() {
                 response: Response<PostStudyResultDTO>
             ) {
                 Log.d("smn server success", response.toString())
-                Toast.makeText(binding.root.context, "스터디가 생성 완료", Toast.LENGTH_SHORT).show()
+                Toast.makeText(binding.root.context, "스터디가 만들어졌어요!", Toast.LENGTH_SHORT).show()
                 UtilFunctions().clearStackAndGoMain(binding.root.context)
             }
 

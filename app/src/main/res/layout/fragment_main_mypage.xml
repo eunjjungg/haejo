@@ -50,7 +50,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/nanum_square_round_r"
                 android:text="해조🔋님의 열정 배터리는 58% 입니다"
-                android:textSize="16sp" />
+                android:textSize="18sp" />
 
             <ImageView
                 android:id="@+id/imgBattery"
