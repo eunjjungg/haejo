@@ -72,6 +72,7 @@ class StudyInfoActivity : AppCompatActivity() {
                 AppSetting.prefs.getNickname(),
                 AppSetting.prefs.getMemberId().toLong()
             ))
+            binding.etComment.setText("")
             commentAdapter.notifyDataSetChanged()
         }
 

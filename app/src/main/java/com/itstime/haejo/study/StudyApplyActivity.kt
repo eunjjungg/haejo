@@ -123,7 +123,7 @@ class StudyApplyActivity : AppCompatActivity() {
                 call: Call<PostApplicationResultDTO>,
                 response: Response<PostApplicationResultDTO>
             ) {
-                Toast.makeText(binding.root.context, "지원이 완료되었습니다", Toast.LENGTH_SHORT).show()
+                Toast.makeText(binding.root.context, "지원이 완료 됐어요", Toast.LENGTH_SHORT).show()
                 finish()
                 Log.d("sapp server2 suc", response.toString())
             }

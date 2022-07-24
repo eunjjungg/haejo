@@ -31,7 +31,7 @@ class MainHomeFragment : Fragment() {
     //current page
     private var itemAmount = 0
     private var loading = false
-    private var page = 2
+    private var page = 1
     private var POST_PER_PAGE = 10
     private lateinit var mainHomePostAdapter: MainHomePostAdapter
     private var postDataList = ArrayList<PostListDTO>()
@@ -56,7 +56,7 @@ class MainHomeFragment : Fragment() {
             binding.recycPost.layoutManager = LinearLayoutManager(context)
             mainHomePostAdapter = MainHomePostAdapter()
             itemAmount++
-            postDataList.add(PostListDTO(4, "", "", "", " "))
+            postDataList.add(PostListDTO(1, "2022-07-10 13:40:49", "비대면", "서울", "미드 영어 단어 스터디 구인"))
             mainHomePostAdapter.items = postDataList
             binding.recycPost.adapter = mainHomePostAdapter
             //here: 데이터 추가 작업 필요!
@@ -158,10 +158,11 @@ class MainHomeFragment : Fragment() {
     private fun getPostListData() {
         loading = true
         val api = APIS.create()
-        for(i in (page * POST_PER_PAGE - POST_PER_PAGE)..(page * POST_PER_PAGE)){
+        for(i in (page * POST_PER_PAGE - POST_PER_PAGE + 1)..(page * POST_PER_PAGE)){
             api.getPostList(i).enqueue(object : Callback<PostListDTO> {
                 override fun onResponse(call: Call<PostListDTO>, response: Response<PostListDTO>) {
                     if(response.body() != null) {
+                        Log.d("data", i.toString())
                         var tmpDTO = PostListDTO(
                             response.body()!!.studyId,
                             response.body()!!.postTime,

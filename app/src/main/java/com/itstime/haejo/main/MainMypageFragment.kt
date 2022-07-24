@@ -13,6 +13,7 @@ import com.itstime.haejo.api.UserGetDTO
 import com.itstime.haejo.databinding.FragmentMainMypageBinding
 import com.itstime.haejo.mypage.*
 import com.itstime.haejo.util.AppSetting
+import com.itstime.haejo.util.UtilFunctions
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -108,6 +109,15 @@ class MainMypageFragment : Fragment() {
         binding.tvReview.setOnClickListener {
             intent = Intent(binding.root.context, MypageRatingActivity::class.java)
             startActivity(intent)
+        }
+
+        binding.tvSignOut.setOnClickListener {
+            AppSetting.prefs.apply {
+                setEmail("null")
+                setName("null")
+                setNickname("null")
+            }
+            UtilFunctions().clearStackAndGoLoading(binding.root.context)
         }
     }
 
