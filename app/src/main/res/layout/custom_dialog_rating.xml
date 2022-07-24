@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:background="@drawable/custom_dialog_rating_background"
+    android:background="@color/customGrayTransparent"
     android:paddingVertical="30dp"
     android:paddingHorizontal="30dp">
 
@@ -38,7 +38,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/nanum_square_round_r"
-            android:text="아주 완벽했어요!"
+            android:text="@string/rating5"
             android:textSize="14sp" />
 
         <RadioButton
@@ -46,7 +46,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/nanum_square_round_r"
-            android:text="대체로 성실했지만 가끔 빠졌어요!"
+            android:text="@string/rating4"
             android:textSize="14sp" />
 
         <RadioButton
@@ -54,7 +54,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/nanum_square_round_r"
-            android:text="대체로 성실했지만 종종 빠졌어요!"
+            android:text="@string/rating3"
             android:textSize="14sp" />
 
         <RadioButton
@@ -62,7 +62,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/nanum_square_round_r"
-            android:text="성실하지 않고 많이 빠졌어요."
+            android:text="@string/rating2"
             android:textSize="14sp" />
 
         <RadioButton
@@ -70,7 +70,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/nanum_square_round_r"
-            android:text="참여하지 않았어요."
+            android:text="@string/rating1"
             android:textSize="14sp" />
 
     </RadioGroup>
