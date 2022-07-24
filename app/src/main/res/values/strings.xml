@@ -29,6 +29,26 @@
         \nhttps://github.com/jwpark1211/ItsTime_Ustudy.git
     </string>
 
+    <string name="rating1">
+        참여하지 않았어요.
+    </string>
+
+    <string name="rating2">
+        성실하지 않고 많이 빠졌어요.
+    </string>
+
+    <string name="rating3">
+        대체로 성실했지만 종종 빠졌어요!
+    </string>
+
+    <string name="rating4">
+        대체로 성실했지만 가끔 빠졌어요!
+    </string>
+
+    <string name="rating5">
+        아주 완벽했어요!
+    </string>
+
     <string name="title_activity_begin_set_profile">BeginSetProfile</string>
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>

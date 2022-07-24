@@ -45,7 +45,6 @@ class MypagePostActivity : AppCompatActivity() {
         setRecyclerPostList(AppSetting.prefs.getMemberId().toLong())
     }
 
-    //db에서 받아오는 값으로 data 수정 필요
     private fun setRecyclerPostList(memberId: Long) {
         val api = APIS.create()
         api.getWroteStudyPostList(memberId).enqueue(object : Callback<PostListArrayDTO> {

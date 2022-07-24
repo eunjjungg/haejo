@@ -41,6 +41,11 @@ interface APIS {
         @Path("id") id: Long
     ): Call<PostListArrayDTO>
 
+    @GET("api/member/{id}/review")
+    fun getRatingList(
+        @Path("id") id: Long
+    ): Call<GetRatingArrayDTO>
+
     @GET("api/studyMember/study/Host/{id}")
     fun getWroteStudyPostList(
         @Path("id") id: Long
